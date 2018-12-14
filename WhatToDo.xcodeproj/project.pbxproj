@@ -13,7 +13,7 @@
 		FABCD1CD21C1EF01009BD3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CB21C1EF01009BD3B8 /* Main.storyboard */; };
 		FABCD1CF21C1EF04009BD3B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CE21C1EF04009BD3B8 /* Assets.xcassets */; };
 		FABCD1D221C1EF04009BD3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1D021C1EF04009BD3B8 /* LaunchScreen.storyboard */; };
-		FABCD1DD21C1EF04009BD3B8 /* WhatToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1DC21C1EF04009BD3B8 /* WhatToDoTests.swift */; };
+		FABCD1DD21C1EF04009BD3B8 /* WhatToDoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1DC21C1EF04009BD3B8 /* WhatToDoViewTests.swift */; };
 		FABCD1E821C1EF04009BD3B8 /* WhatToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1E721C1EF04009BD3B8 /* WhatToDoUITests.swift */; };
 		FABCD20321C1EF5B009BD3B8 /* WhatToDoApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABCD1FA21C1EF5B009BD3B8 /* WhatToDoApplication.framework */; };
 		FABCD20A21C1EF5B009BD3B8 /* WhatToDoApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD20921C1EF5B009BD3B8 /* WhatToDoApplicationTests.swift */; };
@@ -84,7 +84,7 @@
 		FABCD1D121C1EF04009BD3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FABCD1D321C1EF04009BD3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FABCD1D821C1EF04009BD3B8 /* WhatToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FABCD1DC21C1EF04009BD3B8 /* WhatToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoTests.swift; sourceTree = "<group>"; };
+		FABCD1DC21C1EF04009BD3B8 /* WhatToDoViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoViewTests.swift; sourceTree = "<group>"; };
 		FABCD1DE21C1EF04009BD3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FABCD1E321C1EF04009BD3B8 /* WhatToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABCD1E721C1EF04009BD3B8 /* WhatToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoUITests.swift; sourceTree = "<group>"; };
@@ -142,8 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				FABCD1C621C1EF01009BD3B8 /* WhatToDoUI */,
-				FABCD1DB21C1EF04009BD3B8 /* WhatToDoUITests */,
-				FABCD1E621C1EF04009BD3B8 /* WhatToDoXCUITests */,
+				FABCD1DB21C1EF04009BD3B8 /* WhatToDoViewTests */,
+				FABCD1E621C1EF04009BD3B8 /* WhatToDoUITests */,
 				FABCD1FB21C1EF5B009BD3B8 /* WhatToDoApplication */,
 				FABCD20821C1EF5B009BD3B8 /* WhatToDoApplicationTests */,
 				FABCD1C521C1EF01009BD3B8 /* Products */,
@@ -175,23 +175,23 @@
 			path = WhatToDoUI;
 			sourceTree = "<group>";
 		};
-		FABCD1DB21C1EF04009BD3B8 /* WhatToDoUITests */ = {
+		FABCD1DB21C1EF04009BD3B8 /* WhatToDoViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				FABCD1DC21C1EF04009BD3B8 /* WhatToDoTests.swift */,
+				FABCD1DC21C1EF04009BD3B8 /* WhatToDoViewTests.swift */,
 				FABCD1DE21C1EF04009BD3B8 /* Info.plist */,
 			);
-			name = WhatToDoUITests;
+			name = WhatToDoViewTests;
 			path = WhatToDoTests;
 			sourceTree = "<group>";
 		};
-		FABCD1E621C1EF04009BD3B8 /* WhatToDoXCUITests */ = {
+		FABCD1E621C1EF04009BD3B8 /* WhatToDoUITests */ = {
 			isa = PBXGroup;
 			children = (
 				FABCD1E721C1EF04009BD3B8 /* WhatToDoUITests.swift */,
 				FABCD1E921C1EF04009BD3B8 /* Info.plist */,
 			);
-			path = WhatToDoXCUITests;
+			path = WhatToDoUITests;
 			sourceTree = "<group>";
 		};
 		FABCD1FB21C1EF5B009BD3B8 /* WhatToDoApplication */ = {
@@ -427,7 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FABCD1DD21C1EF04009BD3B8 /* WhatToDoTests.swift in Sources */,
+				FABCD1DD21C1EF04009BD3B8 /* WhatToDoViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
