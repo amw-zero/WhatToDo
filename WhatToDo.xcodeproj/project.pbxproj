@@ -18,7 +18,7 @@
 		FABCD1CD21C1EF01009BD3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CB21C1EF01009BD3B8 /* Main.storyboard */; };
 		FABCD1CF21C1EF04009BD3B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CE21C1EF04009BD3B8 /* Assets.xcassets */; };
 		FABCD1D221C1EF04009BD3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1D021C1EF04009BD3B8 /* LaunchScreen.storyboard */; };
-		FABCD1DD21C1EF04009BD3B8 /* WhatToDoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1DC21C1EF04009BD3B8 /* WhatToDoViewTests.swift */; };
+		FABCD1DD21C1EF04009BD3B8 /* WhatToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1DC21C1EF04009BD3B8 /* WhatToDoTests.swift */; };
 		FABCD1E821C1EF04009BD3B8 /* WhatToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1E721C1EF04009BD3B8 /* WhatToDoUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,7 +90,7 @@
 		FABCD1D121C1EF04009BD3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FABCD1D321C1EF04009BD3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FABCD1D821C1EF04009BD3B8 /* WhatToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FABCD1DC21C1EF04009BD3B8 /* WhatToDoViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoViewTests.swift; sourceTree = "<group>"; };
+		FABCD1DC21C1EF04009BD3B8 /* WhatToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoTests.swift; sourceTree = "<group>"; };
 		FABCD1DE21C1EF04009BD3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FABCD1E321C1EF04009BD3B8 /* WhatToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABCD1E721C1EF04009BD3B8 /* WhatToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoUITests.swift; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				FABCD1C621C1EF01009BD3B8 /* WhatToDo */,
-				FABCD1DB21C1EF04009BD3B8 /* WhatToDoViewTests */,
+				FABCD1DB21C1EF04009BD3B8 /* WhatToDoTests */,
 				FABCD1E621C1EF04009BD3B8 /* WhatToDoUITests */,
 				FA90702D21C42AA100680234 /* WhatToDoLogic */,
 				FA90703A21C42AA100680234 /* WhatToDoLogicTests */,
@@ -194,13 +194,12 @@
 			path = WhatToDo;
 			sourceTree = "<group>";
 		};
-		FABCD1DB21C1EF04009BD3B8 /* WhatToDoViewTests */ = {
+		FABCD1DB21C1EF04009BD3B8 /* WhatToDoTests */ = {
 			isa = PBXGroup;
 			children = (
-				FABCD1DC21C1EF04009BD3B8 /* WhatToDoViewTests.swift */,
+				FABCD1DC21C1EF04009BD3B8 /* WhatToDoTests.swift */,
 				FABCD1DE21C1EF04009BD3B8 /* Info.plist */,
 			);
-			name = WhatToDoViewTests;
 			path = WhatToDoTests;
 			sourceTree = "<group>";
 		};
@@ -443,7 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FABCD1DD21C1EF04009BD3B8 /* WhatToDoViewTests.swift in Sources */,
+				FABCD1DD21C1EF04009BD3B8 /* WhatToDoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
