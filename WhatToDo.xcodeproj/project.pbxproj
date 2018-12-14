@@ -13,6 +13,9 @@
 		FA90704121C42AA100680234 /* WhatToDoLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA90702C21C42AA100680234 /* WhatToDoLogic.framework */; };
 		FA90704221C42AA100680234 /* WhatToDoLogic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA90702C21C42AA100680234 /* WhatToDoLogic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FA90704C21C42E5800680234 /* LambdaCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90704B21C42E5800680234 /* LambdaCore.swift */; };
+		FA90704E21C42EEB00680234 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90704D21C42EEB00680234 /* Root.swift */; };
+		FA90705021C42F1A00680234 /* TodoLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90704F21C42F1A00680234 /* TodoLogicTests.swift */; };
+		FA90705621C4319D00680234 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90705521C4319D00680234 /* Todo.swift */; };
 		FABCD1C821C1EF01009BD3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */; };
 		FABCD1CA21C1EF01009BD3B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C921C1EF01009BD3B8 /* ViewController.swift */; };
 		FABCD1CD21C1EF01009BD3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CB21C1EF01009BD3B8 /* Main.storyboard */; };
@@ -82,6 +85,9 @@
 		FA90703B21C42AA100680234 /* WhatToDoLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoLogicTests.swift; sourceTree = "<group>"; };
 		FA90703D21C42AA100680234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA90704B21C42E5800680234 /* LambdaCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LambdaCore.swift; sourceTree = "<group>"; };
+		FA90704D21C42EEB00680234 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
+		FA90704F21C42F1A00680234 /* TodoLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoLogicTests.swift; sourceTree = "<group>"; };
+		FA90705521C4319D00680234 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		FABCD1C421C1EF01009BD3B8 /* WhatToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABCD1C921C1EF01009BD3B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,8 +147,10 @@
 		FA90702D21C42AA100680234 /* WhatToDoLogic */ = {
 			isa = PBXGroup;
 			children = (
-				FA90702E21C42AA100680234 /* WhatToDoLogic.h */,
 				FA90702F21C42AA100680234 /* Info.plist */,
+				FA90704D21C42EEB00680234 /* Root.swift */,
+				FA90705521C4319D00680234 /* Todo.swift */,
+				FA90702E21C42AA100680234 /* WhatToDoLogic.h */,
 			);
 			path = WhatToDoLogic;
 			sourceTree = "<group>";
@@ -150,8 +158,9 @@
 		FA90703A21C42AA100680234 /* WhatToDoLogicTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA90703B21C42AA100680234 /* WhatToDoLogicTests.swift */,
+				FA90704F21C42F1A00680234 /* TodoLogicTests.swift */,
 				FA90703D21C42AA100680234 /* Info.plist */,
+				FA90703B21C42AA100680234 /* WhatToDoLogicTests.swift */,
 			);
 			path = WhatToDoLogicTests;
 			sourceTree = "<group>";
@@ -417,6 +426,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA90704E21C42EEB00680234 /* Root.swift in Sources */,
+				FA90705621C4319D00680234 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA90705021C42F1A00680234 /* TodoLogicTests.swift in Sources */,
 				FA90703C21C42AA100680234 /* WhatToDoLogicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +576,7 @@
 		FA90704521C42AA100680234 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WhatToDoLogicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -582,6 +595,7 @@
 		FA90704621C42AA100680234 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WhatToDoLogicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -716,6 +730,7 @@
 		FABCD1ED21C1EF04009BD3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/WhatToDo/Info.plist";
@@ -733,6 +748,7 @@
 		FABCD1EE21C1EF04009BD3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/WhatToDo/Info.plist";
