@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA906F9821C3589200680234 /* LambdaCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA906F9721C3589200680234 /* LambdaCore.swift */; };
 		FABCD1C821C1EF01009BD3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */; };
 		FABCD1CA21C1EF01009BD3B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C921C1EF01009BD3B8 /* ViewController.swift */; };
 		FABCD1CD21C1EF01009BD3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CB21C1EF01009BD3B8 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA906F9721C3589200680234 /* LambdaCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LambdaCore.swift; sourceTree = "<group>"; };
 		FABCD1C421C1EF01009BD3B8 /* WhatToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABCD1C921C1EF01009BD3B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,9 +141,9 @@
 		FABCD1BB21C1EF01009BD3B8 = {
 			isa = PBXGroup;
 			children = (
-				FABCD1C621C1EF01009BD3B8 /* WhatToDo */,
-				FABCD1DB21C1EF04009BD3B8 /* WhatToDoTests */,
-				FABCD1E621C1EF04009BD3B8 /* WhatToDoUITests */,
+				FABCD1C621C1EF01009BD3B8 /* WhatToDoUI */,
+				FABCD1DB21C1EF04009BD3B8 /* WhatToDoUITests */,
+				FABCD1E621C1EF04009BD3B8 /* WhatToDoXCUITests */,
 				FABCD1FB21C1EF5B009BD3B8 /* WhatToDoApplication */,
 				FABCD20821C1EF5B009BD3B8 /* WhatToDoApplicationTests */,
 				FABCD1C521C1EF01009BD3B8 /* Products */,
@@ -160,7 +162,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FABCD1C621C1EF01009BD3B8 /* WhatToDo */ = {
+		FABCD1C621C1EF01009BD3B8 /* WhatToDoUI */ = {
 			isa = PBXGroup;
 			children = (
 				FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */,
@@ -170,25 +172,26 @@
 				FABCD1D021C1EF04009BD3B8 /* LaunchScreen.storyboard */,
 				FABCD1D321C1EF04009BD3B8 /* Info.plist */,
 			);
-			path = WhatToDo;
+			path = WhatToDoUI;
 			sourceTree = "<group>";
 		};
-		FABCD1DB21C1EF04009BD3B8 /* WhatToDoTests */ = {
+		FABCD1DB21C1EF04009BD3B8 /* WhatToDoUITests */ = {
 			isa = PBXGroup;
 			children = (
 				FABCD1DC21C1EF04009BD3B8 /* WhatToDoTests.swift */,
 				FABCD1DE21C1EF04009BD3B8 /* Info.plist */,
 			);
+			name = WhatToDoUITests;
 			path = WhatToDoTests;
 			sourceTree = "<group>";
 		};
-		FABCD1E621C1EF04009BD3B8 /* WhatToDoUITests */ = {
+		FABCD1E621C1EF04009BD3B8 /* WhatToDoXCUITests */ = {
 			isa = PBXGroup;
 			children = (
 				FABCD1E721C1EF04009BD3B8 /* WhatToDoUITests.swift */,
 				FABCD1E921C1EF04009BD3B8 /* Info.plist */,
 			);
-			path = WhatToDoUITests;
+			path = WhatToDoXCUITests;
 			sourceTree = "<group>";
 		};
 		FABCD1FB21C1EF5B009BD3B8 /* WhatToDoApplication */ = {
@@ -196,6 +199,7 @@
 			children = (
 				FABCD1FC21C1EF5B009BD3B8 /* WhatToDoApplication.h */,
 				FABCD1FD21C1EF5B009BD3B8 /* Info.plist */,
+				FA906F9721C3589200680234 /* LambdaCore.swift */,
 			);
 			path = WhatToDoApplication;
 			sourceTree = "<group>";
@@ -338,6 +342,7 @@
 					};
 					FABCD1F921C1EF5B009BD3B8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					FABCD20121C1EF5B009BD3B8 = {
 						CreatedOnToolsVersion = 10.1;
@@ -438,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA906F9821C3589200680234 /* LambdaCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,9 +624,10 @@
 		FABCD1ED21C1EF04009BD3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = WhatToDo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WhatToDoUI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -635,9 +642,10 @@
 		FABCD1EE21C1EF04009BD3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = WhatToDo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WhatToDoUI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -730,6 +738,7 @@
 		FABCD21221C1EF5B009BD3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -747,6 +756,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.amw.WhatToDoApplication;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -757,6 +767,7 @@
 		FABCD21321C1EF5B009BD3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
