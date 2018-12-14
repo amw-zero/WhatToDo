@@ -13,7 +13,10 @@ public enum Message {
 }
 
 public struct State: Equatable {
-    var todoState: TodoState = TodoState()
+    var todoState: TodoState
+    public init() {
+        self.todoState = TodoState()
+    }
 }
 
 public enum View: Equatable {
