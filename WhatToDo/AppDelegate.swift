@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        orchestrator.receive(.todo(.create))
+        window = UIWindow(frame: UIScreen.main.bounds)
+        orchestrator.executorFor = makeExecutorFactory(window: window)
+        orchestrator.receive(.bootstrap)
         return true
     }
 }

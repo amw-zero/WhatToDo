@@ -17,4 +17,11 @@ class RootTests: XCTestCase {
         XCTAssertEqual(state, initialState)
         XCTAssertEqual(effect, .showModal(.createTodo))
     }
+    func testBootstrap() {
+        let message = Message.bootstrap
+        let initialState = State()
+        let (state, effect) = update(message: message, state: initialState)
+        XCTAssertEqual(state, initialState)
+        XCTAssertEqual(effect, .setView(.home))
+    }
 }

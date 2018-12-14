@@ -14,9 +14,28 @@ struct DummyExecutor: Executor {
     }
 }
 
-struct ExecutorFactory: ExecutorProducer {
-    func executorFor<Effect>(_ effect: Effect) -> Executor {
-        return DummyExecutor()
+struct SetViewExecutor: Executor {
+    let window: UIWindow?
+    init(withWindow window: UIWindow?) {
+        self.window = window
+    }
+    func execute<State, Message, Effect>(withOrchestrator orchestrator: Orchestrator<State, Message, Effect>) {
+        let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
+        window?.rootViewController = storyboard.instantiateInitialViewController()!
+        window?.makeKeyAndVisible()
     }
 }
-let orchestrator = Orchestrator(state: State(), executorFactory: ExecutorFactory(), update: update)
+
+func makeExecutorFactory(window: UIWindow?) -> (Effect) -> Executor {
+    return { effect in
+        switch effect {
+        case .setView:
+            return SetViewExecutor(withWindow: window)
+        default:
+            return DummyExecutor()
+        }
+    }
+}
+
+let orchestrator: Orchestrator<State, Message, Effect>
+    = Orchestrator(state: State(), update: update)
