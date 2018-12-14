@@ -12,7 +12,7 @@
 		FA90703E21C42AA100680234 /* WhatToDoLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = FA90702E21C42AA100680234 /* WhatToDoLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA90704121C42AA100680234 /* WhatToDoLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA90702C21C42AA100680234 /* WhatToDoLogic.framework */; };
 		FA90704221C42AA100680234 /* WhatToDoLogic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA90702C21C42AA100680234 /* WhatToDoLogic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FA90704A21C42AFD00680234 /* LambdaCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90704921C42AFD00680234 /* LambdaCore.swift */; };
+		FA90704C21C42E5800680234 /* LambdaCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90704B21C42E5800680234 /* LambdaCore.swift */; };
 		FABCD1C821C1EF01009BD3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */; };
 		FABCD1CA21C1EF01009BD3B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C921C1EF01009BD3B8 /* ViewController.swift */; };
 		FABCD1CD21C1EF01009BD3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CB21C1EF01009BD3B8 /* Main.storyboard */; };
@@ -81,7 +81,7 @@
 		FA90703421C42AA100680234 /* WhatToDoLogicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatToDoLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA90703B21C42AA100680234 /* WhatToDoLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatToDoLogicTests.swift; sourceTree = "<group>"; };
 		FA90703D21C42AA100680234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA90704921C42AFD00680234 /* LambdaCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LambdaCore.swift; sourceTree = "<group>"; };
+		FA90704B21C42E5800680234 /* LambdaCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LambdaCore.swift; sourceTree = "<group>"; };
 		FABCD1C421C1EF01009BD3B8 /* WhatToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABCD1C921C1EF01009BD3B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +141,6 @@
 		FA90702D21C42AA100680234 /* WhatToDoLogic */ = {
 			isa = PBXGroup;
 			children = (
-				FA90704921C42AFD00680234 /* LambdaCore.swift */,
 				FA90702E21C42AA100680234 /* WhatToDoLogic.h */,
 				FA90702F21C42AA100680234 /* Info.plist */,
 			);
@@ -185,11 +184,12 @@
 			isa = PBXGroup;
 			children = (
 				FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */,
-				FABCD1C921C1EF01009BD3B8 /* ViewController.swift */,
-				FABCD1CB21C1EF01009BD3B8 /* Main.storyboard */,
 				FABCD1CE21C1EF04009BD3B8 /* Assets.xcassets */,
-				FABCD1D021C1EF04009BD3B8 /* LaunchScreen.storyboard */,
 				FABCD1D321C1EF04009BD3B8 /* Info.plist */,
+				FA90704B21C42E5800680234 /* LambdaCore.swift */,
+				FABCD1D021C1EF04009BD3B8 /* LaunchScreen.storyboard */,
+				FABCD1CB21C1EF01009BD3B8 /* Main.storyboard */,
+				FABCD1C921C1EF01009BD3B8 /* ViewController.swift */,
 			);
 			path = WhatToDo;
 			sourceTree = "<group>";
@@ -417,7 +417,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA90704A21C42AFD00680234 /* LambdaCore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FABCD1CA21C1EF01009BD3B8 /* ViewController.swift in Sources */,
+				FA90704C21C42E5800680234 /* LambdaCore.swift in Sources */,
 				FABCD1C821C1EF01009BD3B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,7 +564,6 @@
 		FA90704521C42AA100680234 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WhatToDoLogicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -583,7 +582,6 @@
 		FA90704621C42AA100680234 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WhatToDoLogicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -718,7 +716,6 @@
 		FABCD1ED21C1EF04009BD3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/WhatToDo/Info.plist";
@@ -736,7 +733,6 @@
 		FABCD1EE21C1EF04009BD3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/WhatToDo/Info.plist";
