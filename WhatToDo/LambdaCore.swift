@@ -31,7 +31,7 @@ public class Orchestrator<State, Message, Effect> {
         self.update = update
     }
     public func receive(_ message: Message) {
-        let (newState, effect) = update(Message, state)
+        let (newState, effect) = update(message, state)
         state = newState
         subscriptions.forEach { $0(state) }
         effect.map {
