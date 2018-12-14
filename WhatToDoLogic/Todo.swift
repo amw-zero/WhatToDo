@@ -13,7 +13,6 @@ public enum TodoMessage {
 }
 
 struct TodoState: Equatable {
-    
 }
 
 func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) {

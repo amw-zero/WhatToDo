@@ -30,7 +30,7 @@ public class Orchestrator<State, Message, Effect> {
         self.executorFactory = executorFactory
         self.update = update
     }
-    public func receive(_ Message: Message) {
+    public func receive(_ message: Message) {
         let (newState, effect) = update(Message, state)
         state = newState
         subscriptions.forEach { $0(state) }
@@ -49,4 +49,3 @@ public class Orchestrator<State, Message, Effect> {
         _ = subscriptions.remove(at: subscriptionId)
     }
 }
-
