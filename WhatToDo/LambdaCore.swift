@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol Executor {
-    func execute<State, Action, Effect>(withOrchestrator orchestrator: Orchestrator<State, Action, Effect>)
+    func execute<State, Message, Effect>(withOrchestrator orchestrator: Orchestrator<State, Message, Effect>)
 }
 
 public protocol ExecutorProducer {
@@ -18,8 +18,8 @@ public protocol ExecutorProducer {
 
 public typealias SubscriptionId = Int
 
-public class Orchestrator<State, Action, Effect> {
-    public typealias UpdateFunc = (Action, State) -> (State, Effect?)
+public class Orchestrator<State, Message, Effect> {
+    public typealias UpdateFunc = (Message, State) -> (State, Effect?)
     public typealias SubscriptionFunc = (State) -> Void
     var state: State
     var update: UpdateFunc
@@ -30,8 +30,8 @@ public class Orchestrator<State, Action, Effect> {
         self.executorFactory = executorFactory
         self.update = update
     }
-    public func receive(_ action: Action) {
-        let (newState, effect) = update(action, state)
+    public func receive(_ Message: Message) {
+        let (newState, effect) = update(Message, state)
         state = newState
         subscriptions.forEach { $0(state) }
         effect.map {
