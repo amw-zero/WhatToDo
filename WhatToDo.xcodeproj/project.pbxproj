@@ -141,7 +141,7 @@
 		FABCD1BB21C1EF01009BD3B8 = {
 			isa = PBXGroup;
 			children = (
-				FABCD1C621C1EF01009BD3B8 /* WhatToDoUI */,
+				FABCD1C621C1EF01009BD3B8 /* WhatToDo */,
 				FABCD1DB21C1EF04009BD3B8 /* WhatToDoViewTests */,
 				FABCD1E621C1EF04009BD3B8 /* WhatToDoUITests */,
 				FABCD1FB21C1EF5B009BD3B8 /* WhatToDoApplication */,
@@ -162,7 +162,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FABCD1C621C1EF01009BD3B8 /* WhatToDoUI */ = {
+		FABCD1C621C1EF01009BD3B8 /* WhatToDo */ = {
 			isa = PBXGroup;
 			children = (
 				FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */,
@@ -172,7 +172,7 @@
 				FABCD1D021C1EF04009BD3B8 /* LaunchScreen.storyboard */,
 				FABCD1D321C1EF04009BD3B8 /* Info.plist */,
 			);
-			path = WhatToDoUI;
+			path = WhatToDo;
 			sourceTree = "<group>";
 		};
 		FABCD1DB21C1EF04009BD3B8 /* WhatToDoViewTests */ = {
@@ -627,7 +627,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/WhatToDoUI/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/WhatToDo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -645,7 +645,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "$(SRCROOT)/WhatToDoUI/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/WhatToDo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
