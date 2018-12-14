@@ -9,11 +9,6 @@
 import Foundation
 import WhatToDoLogic
 
-struct DummyExecutor: Executor {
-    func execute<State, Message, Effect>(withOrchestrator orchestrator: Orchestrator<State, Message, Effect>) {
-    }
-}
-
 struct SetViewExecutor: Executor {
     let window: UIWindow?
     init(withWindow window: UIWindow?) {
@@ -32,7 +27,7 @@ func makeExecutorFactory(window: UIWindow?) -> (Effect) -> Executor {
         case .setView:
             return SetViewExecutor(withWindow: window)
         default:
-            return DummyExecutor()
+            return NullExecutor()
         }
     }
 }
