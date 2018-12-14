@@ -16,6 +16,7 @@
 		FA90704E21C42EEB00680234 /* Root.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90704D21C42EEB00680234 /* Root.swift */; };
 		FA90705021C42F1A00680234 /* TodoLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90704F21C42F1A00680234 /* TodoLogicTests.swift */; };
 		FA90705621C4319D00680234 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90705521C4319D00680234 /* Todo.swift */; };
+		FAABBF1E21C4372F0097433B /* RootTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF1D21C4372F0097433B /* RootTests.swift */; };
 		FABCD1C821C1EF01009BD3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */; };
 		FABCD1CA21C1EF01009BD3B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C921C1EF01009BD3B8 /* ViewController.swift */; };
 		FABCD1CD21C1EF01009BD3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CB21C1EF01009BD3B8 /* Main.storyboard */; };
@@ -88,6 +89,7 @@
 		FA90704D21C42EEB00680234 /* Root.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Root.swift; sourceTree = "<group>"; };
 		FA90704F21C42F1A00680234 /* TodoLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoLogicTests.swift; sourceTree = "<group>"; };
 		FA90705521C4319D00680234 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		FAABBF1D21C4372F0097433B /* RootTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTests.swift; sourceTree = "<group>"; };
 		FABCD1C421C1EF01009BD3B8 /* WhatToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABCD1C921C1EF01009BD3B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,8 +160,9 @@
 		FA90703A21C42AA100680234 /* WhatToDoLogicTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA90704F21C42F1A00680234 /* TodoLogicTests.swift */,
 				FA90703D21C42AA100680234 /* Info.plist */,
+				FAABBF1D21C4372F0097433B /* RootTests.swift */,
+				FA90704F21C42F1A00680234 /* TodoLogicTests.swift */,
 				FA90703B21C42AA100680234 /* WhatToDoLogicTests.swift */,
 			);
 			path = WhatToDoLogicTests;
@@ -436,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA90705021C42F1A00680234 /* TodoLogicTests.swift in Sources */,
+				FAABBF1E21C4372F0097433B /* RootTests.swift in Sources */,
 				FA90703C21C42AA100680234 /* WhatToDoLogicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TodoMessage {
+public enum TodoMessage {
     case create
 }
 

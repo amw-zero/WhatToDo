@@ -8,18 +8,28 @@
 
 import Foundation
 
-enum Message {
+public enum Message {
     case todo(TodoMessage)
 }
 
-struct State {
-    var todoState: TodoState
+public struct State: Equatable {
+    var todoState: TodoState = TodoState()
 }
 
-enum View: Equatable {
+public enum View: Equatable {
     case createTodo
 }
 
-enum Effect: Equatable {
+public enum Effect: Equatable {
     case showModal(View)
+}
+
+public func update(message: Message, state: State) -> (State, Effect?) {
+    var newState = state
+    switch message {
+    case let .todo(todoMessage):
+        let (todoState, effect) = todoUpdate(message: todoMessage, state: state.todoState)
+        newState.todoState = todoState
+        return (newState, effect)
+    }
 }
