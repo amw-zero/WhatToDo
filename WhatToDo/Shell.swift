@@ -70,5 +70,4 @@ func makeExecutorFactory(window: UIWindow?) -> (Effect) -> Executor {
     }
 }
 
-let orchestrator: Orchestrator<State, Message, Effect>
-    = Orchestrator(state: State(), update: update)
+let orchestrator = Orchestrator(state: State(), update: update)
