@@ -9,5 +9,11 @@
 import XCTest
 @testable import WhatToDo
 
-class WhatToDoTests: XCTestCase {
-}
+//class WhatToDoTests: XCTestCase {
+//    func testFetchData() {
+//        var orchestrator = Orchestrator(state: State(), update: update)
+//        orchestrator.executorFor = { effect in
+////            return
+//        }
+//    }
+//}
