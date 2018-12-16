@@ -26,7 +26,7 @@ class TodoLogicTests: XCTestCase {
     }
     func testTodosReceived() {
         let initialState = TodoState()
-        let todos = [Todo()]
+        let todos = [Todo(title: "Test Todo")]
         let message = TodoMessage.todosReceived(todos)
         let (state, effect) = todoUpdate(message: message, state: initialState)
         XCTAssertEqual(state, TodoState(todos: todos))
