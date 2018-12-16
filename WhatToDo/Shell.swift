@@ -14,7 +14,7 @@ struct SetViewExecutor: Executor {
     init(withWindow window: UIWindow?) {
         self.window = window
     }
-    func execute<State, Message, Effect>(withOrchestrator orchestrator: Orchestrator<State, Message, Effect>) {
+    func execute<State, Message, Effect>(inShell shell: Shell<State, Message, Effect>) {
         let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
         window?.rootViewController = storyboard.instantiateInitialViewController()!
         window?.makeKeyAndVisible()
@@ -26,7 +26,7 @@ struct ShowModalExecutor: Executor {
     init(withWindow window: UIWindow?) {
         self.window = window
     }
-    func execute<State, Message, Effect>(withOrchestrator orchestrator: Orchestrator<State, Message, Effect>) {
+    func execute<State, Message, Effect>(inShell shell: Shell<State, Message, Effect>) {
         let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "ModalVC")
         window?.rootViewController?.present(viewController, animated: true, completion: nil)
@@ -38,19 +38,19 @@ struct DismissModalExecutor: Executor {
     init(withWindow window: UIWindow?) {
         self.window = window
     }
-    func execute<State, Message, Effect>(withOrchestrator orchestrator: Orchestrator<State, Message, Effect>) {
+    func execute<State, Message, Effect>(inShell shell: Shell<State, Message, Effect>) {
         window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }
 
 struct FetchDataExecutor: Executor {
     let remoteData: RemoteData
-    func execute<State, Msg, Effect>(withOrchestrator orchestrator: Orchestrator<State, Msg, Effect>) {
-        // TODO: orchestrator.receive(.fetchingData)
+    func execute<State, Msg, Effect>(inShell shell: Shell<State, Msg, Effect>) {
+        // TODO: shell.receive(.fetchingData)
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
             let message: Message = self.remoteData.parser.parse(data: nil, response: nil, error: nil)
             // How can I get rid of this cast?
-            orchestrator.receive(message as! Msg)
+            shell.receive(message as! Msg)
         }
     }
 }
@@ -70,4 +70,4 @@ func makeExecutorFactory(window: UIWindow?) -> (Effect) -> Executor {
     }
 }
 
-let orchestrator = Orchestrator(state: State(), update: update)
+let shell = Shell(state: State(), update: update)

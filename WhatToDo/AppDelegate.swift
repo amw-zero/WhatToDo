@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        orchestrator.executorFor = makeExecutorFactory(window: window)
-        orchestrator.receive(.bootstrap)
+        shell.executorFor = makeExecutorFactory(window: window)
+        shell.receive(.bootstrap)
         return true
     }
 }

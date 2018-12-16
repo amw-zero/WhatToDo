@@ -9,11 +9,11 @@
 import Foundation
 
 public protocol Executor {
-    func execute<State, Message, Effect>(withOrchestrator orchestrator: Orchestrator<State, Message, Effect>)
+    func execute<State, Message, Effect>(inShell shell: Shell<State, Message, Effect>)
 }
 struct NullExecutor: Executor {
     func execute<State, Message, Effect>(
-        withOrchestrator orchestrator: Orchestrator<State, Message, Effect>) {
+        inShell shell: Shell<State, Message, Effect>) {
     }
 }
 
@@ -23,7 +23,7 @@ public protocol ExecutorProducer {
 
 public typealias SubscriptionId = Int
 
-public class Orchestrator<State, Message, Effect> {
+public class Shell<State, Message, Effect> {
     public typealias UpdateFunc = (Message, State) -> (State, Effect?)
     public typealias SubscriptionFunc = (State) -> Void
     public typealias ExecutorFunc = (Effect) -> Executor
@@ -41,7 +41,7 @@ public class Orchestrator<State, Message, Effect> {
         subscriptions.forEach { $0(state) }
         effect.map {
             executorFor($0)
-                .execute(withOrchestrator: self)
+                .execute(inShell: self)
         }
     }
     public func subscribe(subscription: @escaping SubscriptionFunc) -> SubscriptionId {

@@ -14,12 +14,12 @@ class HomeVC: UIViewController {
     var subscriptionId: SubscriptionId?
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        orchestrator.receive(.todo(.suggest))
-        subscriptionId = orchestrator.subscribe(subscription: render)
+        shell.receive(.todo(.suggest))
+        subscriptionId = shell.subscribe(subscription: render)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        subscriptionId.map { orchestrator.unsubscribe(subscriptionId: $0) }
+        subscriptionId.map { shell.unsubscribe(subscriptionId: $0) }
 
     }
     func render(state: State) {
