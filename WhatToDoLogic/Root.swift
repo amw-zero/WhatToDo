@@ -11,6 +11,8 @@ import Foundation
 public enum Message {
     case bootstrap
     case todo(TodoMessage)
+    case showModal
+    case dismissModal
 }
 
 public struct State: Equatable {
@@ -28,6 +30,12 @@ public enum View: Equatable {
 public enum Effect: Equatable {
     case setView(View)
     case showModal(View)
+    case dismissModal
+    case fetchData(RemoteData)
+}
+
+public enum RemoteData: Equatable {
+    case suggestedTodo
 }
 
 public func update(message: Message, state: State) -> (State, Effect?) {
@@ -39,5 +47,9 @@ public func update(message: Message, state: State) -> (State, Effect?) {
         return (newState, effect)
     case .bootstrap:
         return (state, .setView(.home))
+    case .showModal:
+        return (state, .showModal(.home))
+    case .dismissModal:
+        return (state, .dismissModal)
     }
 }
