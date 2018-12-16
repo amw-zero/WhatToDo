@@ -352,7 +352,6 @@
 					};
 					FA90703321C42AA100680234 = {
 						CreatedOnToolsVersion = 10.1;
-						TestTargetID = FABCD1C321C1EF01009BD3B8;
 					};
 					FABCD1C321C1EF01009BD3B8 = {
 						CreatedOnToolsVersion = 10.1;
@@ -600,7 +599,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatToDo.app/WhatToDo";
 			};
 			name = Debug;
 		};
@@ -619,7 +617,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatToDo.app/WhatToDo";
 			};
 			name = Release;
 		};
