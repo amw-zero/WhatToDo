@@ -28,11 +28,11 @@ struct ShowModalExecutor: Executor {
     }
     func execute<State, Message, Effect>(withOrchestrator orchestrator: Orchestrator<State, Message, Effect>) {
         let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ModalVC")
-        window?.rootViewController?.present(vc, animated: true, completion: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ModalVC")
+        window?.rootViewController?.present(viewController, animated: true, completion: nil)
     }
 }
-    
+
 struct DismissModalExecutor: Executor {
     let window: UIWindow?
     init(withWindow window: UIWindow?) {
