@@ -8,13 +8,6 @@
 
 import Foundation
 
-public enum Message {
-    case bootstrap
-    case todo(TodoMessage)
-    case showModal
-    case dismissModal
-}
-
 public struct State: Equatable {
     public var todoState: TodoState
     public init() {
@@ -22,9 +15,11 @@ public struct State: Equatable {
     }
 }
 
-public enum View: Equatable {
-    case home
-    case createTodo
+public enum Message {
+    case bootstrap
+    case todo(TodoMessage)
+    case showModal
+    case dismissModal
 }
 
 public enum Effect: Equatable {
@@ -32,6 +27,11 @@ public enum Effect: Equatable {
     case showModal(View)
     case dismissModal
     case fetchData(RemoteData)
+}
+
+public enum View: Equatable {
+    case home
+    case createTodo
 }
 
 public protocol Parser {
