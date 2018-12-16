@@ -38,13 +38,6 @@ public protocol Parser {
     func parse(data: Data?, response: URLResponse?, error: Error?) -> Message
 }
 
-struct TodoParser: Parser {
-    func parse(data: Data?, response: URLResponse?, error: Error?) -> Message {
-        let todos = [Todo(title: "Fake Todo")]
-        return .todo(.todosReceived(todos))
-    }
-}
-
 public enum RemoteData: Equatable {
     case suggestedTodo
     public var parser: Parser {
