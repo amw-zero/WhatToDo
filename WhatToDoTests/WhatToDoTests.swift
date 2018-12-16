@@ -11,8 +11,8 @@ import XCTest
 
 //class WhatToDoTests: XCTestCase {
 //    func testFetchData() {
-//        var orchestrator = Orchestrator(state: State(), update: update)
-//        orchestrator.executorFor = { effect in
+//        var shell = Shell(state: State(), update: update)
+//        shell.executorFor = { effect in
 ////            return
 //        }
 //    }
