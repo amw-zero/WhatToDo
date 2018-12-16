@@ -8,12 +8,21 @@
 
 import Foundation
 
+public struct Todo: Equatable {
+    public let title: String
+    public init(title: String) {
+        self.title = title
+    }
+}
+
 public enum TodoMessage {
     case create
     case suggest
+    case todosReceived([Todo])
 }
 
-struct TodoState: Equatable {
+public struct TodoState: Equatable {
+    public var todos: [Todo] = [Todo]()
 }
 
 func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) {
@@ -22,5 +31,9 @@ func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) 
         return (state, .showModal(.createTodo))
     case .suggest:
         return (state, .fetchData(.suggestedTodo))
+    case let .todosReceived(todos):
+        var newState = state
+        newState.todos = todos
+        return (newState, nil)
     }
 }

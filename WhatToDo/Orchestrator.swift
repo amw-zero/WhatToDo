@@ -43,6 +43,18 @@ struct DismissModalExecutor: Executor {
     }
 }
 
+struct FetchDataExecutor: Executor {
+    let remoteData: RemoteData
+    func execute<State, Msg, Effect>(withOrchestrator orchestrator: Orchestrator<State, Msg, Effect>) {
+        // TODO: orchestrator.receive(.fetchingData)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            let message: Message = self.remoteData.parser.parse(data: nil, response: nil, error: nil)
+            // How can I get rid of this cast?
+            orchestrator.receive(message as! Msg)
+        }
+    }
+}
+
 func makeExecutorFactory(window: UIWindow?) -> (Effect) -> Executor {
     return { effect in
         switch effect {
@@ -52,8 +64,8 @@ func makeExecutorFactory(window: UIWindow?) -> (Effect) -> Executor {
             return DismissModalExecutor(withWindow: window)
         case .showModal:
             return ShowModalExecutor(withWindow: window)
-        default:
-            return NullExecutor()
+        case let .fetchData(remoteData):
+            return FetchDataExecutor(remoteData: remoteData)
         }
     }
 }

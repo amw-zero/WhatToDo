@@ -16,7 +16,7 @@ public enum Message {
 }
 
 public struct State: Equatable {
-    var todoState: TodoState
+    public var todoState: TodoState
     public init() {
         self.todoState = TodoState()
     }
@@ -34,8 +34,25 @@ public enum Effect: Equatable {
     case fetchData(RemoteData)
 }
 
+public protocol Parser {
+    func parse(data: Data?, response: URLResponse?, error: Error?) -> Message
+}
+
+struct TodoParser: Parser {
+    func parse(data: Data?, response: URLResponse?, error: Error?) -> Message {
+        let todos = [Todo(title: "Fake Todo")]
+        return .todo(.todosReceived(todos))
+    }
+}
+
 public enum RemoteData: Equatable {
     case suggestedTodo
+    public var parser: Parser {
+        switch self {
+        case .suggestedTodo:
+            return TodoParser()
+        }
+    }
 }
 
 public func update(message: Message, state: State) -> (State, Effect?) {
