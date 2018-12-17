@@ -14,6 +14,14 @@ class HomeVC: UIViewController {
     var subscriptionId: SubscriptionId?
     var todos: [Todo] = []
     @IBOutlet weak var tableView: UITableView!
+    func render(state: State) {
+        todos = state.todoState.todos
+        tableView.reloadData()
+    }
+}
+
+// MARK: UIViewController Lifecycle Methods
+extension HomeVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         styleTableView(tableView)
@@ -26,14 +34,11 @@ class HomeVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         subscriptionId.map { shell.unsubscribe(subscriptionId: $0) }
-
-    }
-    func render(state: State) {
-        todos = state.todoState.todos
-        tableView.reloadData()
+        
     }
 }
 
+// MARK: UITableViewDataSource
 extension HomeVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
@@ -45,5 +50,12 @@ extension HomeVC: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTVC") as! TodoTVC
         cell.label.text = todos[indexPath.row].title
         return cell
+    }
+}
+
+// MARK: IBActions
+extension HomeVC {
+    @IBAction func addTodo(button: UIButton) {
+        shell.receive(.todo(.create))
     }
 }
