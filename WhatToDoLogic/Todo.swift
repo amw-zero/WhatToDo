@@ -17,7 +17,6 @@ public struct Todo: Equatable {
 
 public enum TodoMessage {
     case create
-    case suggest
     case fetchSuggestedPage
     case todosReceived([Todo])
 }
