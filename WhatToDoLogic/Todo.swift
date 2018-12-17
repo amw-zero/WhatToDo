@@ -31,6 +31,17 @@ public struct TodoState: Equatable {
         self.suggestedTodoPage = suggestedTodoPage
         self.paginationState = paginationState
     }
+    public func copy(
+        todos: [Todo]? = nil,
+        suggestedTodoPage: Int? = nil,
+        paginationState: PaginationState? = nil
+    ) -> TodoState {
+        var copy = self
+        copy.todos = todos ?? self.todos
+        copy.suggestedTodoPage = suggestedTodoPage ?? self.suggestedTodoPage
+        copy.paginationState = paginationState ?? self.paginationState
+        return copy
+    }
 }
 
 func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) {
@@ -38,17 +49,14 @@ func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) 
     case .create:
         return (state, .showModal(.createTodo))
     case let .todosReceived(todos):
-        var newState = state
-        newState.todos = state.todos + todos
-        newState.paginationState = .idle
+        let newState = state.copy(todos: state.todos + todos, paginationState: .idle)
         return (newState, nil)
     case .fetchSuggestedPage where .idle == state.paginationState:
-        let currentTodosPage = state.suggestedTodoPage
-        let nextTodosPage = state.suggestedTodoPage + 1
-        var newState = state
-        newState.suggestedTodoPage = nextTodosPage
-        newState.paginationState = .fetching
-        return (newState, .fetchData(.suggestedTodo(page: currentTodosPage)))
+        let newState = state.copy(
+            suggestedTodoPage: state.suggestedTodoPage + 1,
+            paginationState: .fetching
+        )
+        return (newState, .fetchData(.suggestedTodo(page: state.suggestedTodoPage)))
     default:
         return (state, nil)
     }
