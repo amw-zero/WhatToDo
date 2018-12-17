@@ -13,6 +13,10 @@ class HomeVC: UIViewController {
     var subscriptionId: SubscriptionId?
     var todos: [Todo] = []
     @IBOutlet weak var tableView: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        styleTableView(tableView)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         shell.receive(.todo(.suggest))
