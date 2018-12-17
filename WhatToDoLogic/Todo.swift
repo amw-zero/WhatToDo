@@ -30,7 +30,7 @@ func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) 
     case .create:
         return (state, .showModal(.createTodo))
     case .suggest:
-        return (state, .fetchData(.suggestedTodo))
+        return (state, .fetchData(.suggestedTodo(page: 0)))
     case let .todosReceived(todos):
         var newState = state
         newState.todos = todos

@@ -39,7 +39,7 @@ public protocol Parser {
 }
 
 public enum RemoteData: Equatable {
-    case suggestedTodo
+    case suggestedTodo(page: Int)
     public var parser: Parser {
         switch self {
         case .suggestedTodo:
