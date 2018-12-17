@@ -10,6 +10,7 @@ import UIKit
 import WhatToDoLogic
 
 class HomeVC: UIViewController {
+    let paginationThreshold = 5
     var subscriptionId: SubscriptionId?
     var todos: [Todo] = []
     @IBOutlet weak var tableView: UITableView!
@@ -28,8 +29,10 @@ class HomeVC: UIViewController {
 
     }
     func render(state: State) {
-        todos = state.todoState.todos
-        tableView.reloadData()
+        if todos.count != state.todoState.todos.count {
+            todos = state.todoState.todos
+            tableView.reloadData()
+        }
     }
 }
 
@@ -38,6 +41,9 @@ extension HomeVC: UITableViewDataSource {
         return todos.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row > (todos.count - paginationThreshold)  {
+            shell.receive(.todo(.fetchSuggestedPage))
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTVC") as! TodoTVC
         cell.label.text = todos[indexPath.row].title
         return cell

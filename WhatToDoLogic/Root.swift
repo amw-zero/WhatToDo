@@ -48,6 +48,12 @@ public enum RemoteData: Equatable {
     }
 }
 
+public enum PaginationState: Equatable {
+    case idle
+    case fetching
+    case done
+}
+
 public func update(message: Message, state: State) -> (State, Effect?) {
     var newState = state
     switch message {

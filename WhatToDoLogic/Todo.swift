@@ -18,11 +18,19 @@ public struct Todo: Equatable {
 public enum TodoMessage {
     case create
     case suggest
+    case fetchSuggestedPage
     case todosReceived([Todo])
 }
 
 public struct TodoState: Equatable {
-    public var todos: [Todo] = [Todo]()
+    public var todos: [Todo]
+    public var suggestedTodoPage: Int
+    public var paginationState: PaginationState
+    public init(todos: [Todo] = [], suggestedTodoPage: Int = 0, paginationState: PaginationState = .idle) {
+        self.todos = todos
+        self.suggestedTodoPage = suggestedTodoPage
+        self.paginationState = paginationState
+    }
 }
 
 func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) {
@@ -30,11 +38,21 @@ func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) 
     case .create:
         return (state, .showModal(.createTodo))
     case .suggest:
-        return (state, .fetchData(.suggestedTodo(page: 0)))
+        var newState = state
+        newState.paginationState = .fetching
+        return (newState, .fetchData(.suggestedTodo(page: 0)))
     case let .todosReceived(todos):
         var newState = state
-        newState.todos = todos
+        newState.todos = state.todos + todos
         return (newState, nil)
+    case .fetchSuggestedPage where .idle == state.paginationState:
+        let nextTodosPage = state.suggestedTodoPage + 1
+        var newState = state
+        newState.suggestedTodoPage = nextTodosPage
+        newState.paginationState = .fetching
+        return (newState, .fetchData(.suggestedTodo(page: nextTodosPage)))
+    default:
+        return (state, nil)
     }
 }
 
