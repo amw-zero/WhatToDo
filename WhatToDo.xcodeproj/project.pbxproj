@@ -19,6 +19,7 @@
 		FAABBF1E21C4372F0097433B /* RootTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF1D21C4372F0097433B /* RootTests.swift */; };
 		FAABBF2021C43AAB0097433B /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF1F21C43AAB0097433B /* Shell.swift */; };
 		FAABBF2221C478980097433B /* CreateTodoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAABBF2121C478980097433B /* CreateTodoVC.storyboard */; };
+		FAABBF2C21C724870097433B /* TodoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF2B21C724870097433B /* TodoTVC.swift */; };
 		FABCD1C821C1EF01009BD3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */; };
 		FABCD1CA21C1EF01009BD3B8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C921C1EF01009BD3B8 /* HomeVC.swift */; };
 		FABCD1CD21C1EF01009BD3B8 /* HomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CB21C1EF01009BD3B8 /* HomeVC.storyboard */; };
@@ -94,6 +95,7 @@
 		FAABBF1D21C4372F0097433B /* RootTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTests.swift; sourceTree = "<group>"; };
 		FAABBF1F21C43AAB0097433B /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		FAABBF2121C478980097433B /* CreateTodoVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateTodoVC.storyboard; sourceTree = "<group>"; };
+		FAABBF2B21C724870097433B /* TodoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTVC.swift; sourceTree = "<group>"; };
 		FABCD1C421C1EF01009BD3B8 /* WhatToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABCD1C921C1EF01009BD3B8 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				FA90704B21C42E5800680234 /* LambdaCore.swift */,
 				FABCD1D021C1EF04009BD3B8 /* LaunchScreen.storyboard */,
 				FAABBF1F21C43AAB0097433B /* Shell.swift */,
+				FAABBF2B21C724870097433B /* TodoTVC.swift */,
 			);
 			path = WhatToDo;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				FABCD1CA21C1EF01009BD3B8 /* HomeVC.swift in Sources */,
 				FA90704C21C42E5800680234 /* LambdaCore.swift in Sources */,
 				FAABBF2021C43AAB0097433B /* Shell.swift in Sources */,
+				FAABBF2C21C724870097433B /* TodoTVC.swift in Sources */,
 				FABCD1C821C1EF01009BD3B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

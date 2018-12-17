@@ -40,7 +40,13 @@ func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) 
 
 struct TodoParser: Parser {
     func parse(data: Data?, response: URLResponse?, error: Error?) -> Message {
-        let todos = [Todo(title: "Fake Todo")]
+        let todos = [
+            Todo(title: "Fake Todo"),
+            Todo(title: "Fake Todo 2"),
+            Todo(title: "Fake Todo 3"),
+            Todo(title: "Fake Todo 4"),
+            Todo(title: "Fake Todo 5"),
+        ]
         return .todo(.todosReceived(todos))
     }
 }

@@ -10,8 +10,9 @@ import UIKit
 import WhatToDoLogic
 
 class HomeVC: UIViewController {
-    @IBOutlet weak var label: UILabel!
     var subscriptionId: SubscriptionId?
+    var todos: [Todo] = []
+    @IBOutlet weak var tableView: UITableView!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         shell.receive(.todo(.suggest))
@@ -23,9 +24,18 @@ class HomeVC: UIViewController {
 
     }
     func render(state: State) {
-        let todos = state.todoState.todos
-        if !todos.isEmpty {
-            label.text = todos[0].title
-        }
+        todos = state.todoState.todos
+        tableView.reloadData()
+    }
+}
+
+extension HomeVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return todos.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTVC") as! TodoTVC
+        cell.label.text = todos[indexPath.row].title
+        return cell
     }
 }
