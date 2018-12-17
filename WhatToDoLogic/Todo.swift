@@ -43,11 +43,12 @@ func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) 
         newState.paginationState = .idle
         return (newState, nil)
     case .fetchSuggestedPage where .idle == state.paginationState:
+        let currentTodosPage = state.suggestedTodoPage
         let nextTodosPage = state.suggestedTodoPage + 1
         var newState = state
         newState.suggestedTodoPage = nextTodosPage
         newState.paginationState = .fetching
-        return (newState, .fetchData(.suggestedTodo(page: nextTodosPage)))
+        return (newState, .fetchData(.suggestedTodo(page: currentTodosPage)))
     default:
         return (state, nil)
     }

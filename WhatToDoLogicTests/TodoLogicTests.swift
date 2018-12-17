@@ -37,7 +37,7 @@ class TodoLogicTests: XCTestCase {
         expectedState.suggestedTodoPage = 2
         expectedState.paginationState = .fetching
         XCTAssertEqual(state, expectedState)
-        XCTAssertEqual(effect, Effect.fetchData(.suggestedTodo(page: 2)))
+        XCTAssertEqual(effect, Effect.fetchData(.suggestedTodo(page: 1)))
     }
     func testTodoPaginationWhenNotIdle() {
         let initialState = TodoState(paginationState: .fetching)
