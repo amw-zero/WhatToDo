@@ -29,10 +29,8 @@ class HomeVC: UIViewController {
 
     }
     func render(state: State) {
-        if todos.count != state.todoState.todos.count {
-            todos = state.todoState.todos
-            tableView.reloadData()
-        }
+        todos = state.todoState.todos
+        tableView.reloadData()
     }
 }
 
