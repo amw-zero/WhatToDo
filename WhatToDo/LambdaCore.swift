@@ -36,7 +36,6 @@ public class Shell<State, Message, Effect> {
         self.update = update
     }
     public func receive(_ message: Message) {
-        print("Received message: \(message)")
         let (newState, effect) = update(message, state)
         state = newState
         subscriptions.forEach { $0(state) }

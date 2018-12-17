@@ -41,7 +41,7 @@ extension HomeVC: UITableViewDataSource {
         return todos.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row > (todos.count - paginationThreshold)  {
+        if indexPath.row > (todos.count - paginationThreshold)   {
             shell.receive(.todo(.fetchSuggestedPage))
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTVC") as! TodoTVC

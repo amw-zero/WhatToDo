@@ -28,7 +28,7 @@ class TodoLogicTests: XCTestCase {
     }
     func testTodosReceived() {
         let initialTodos = [Todo(title: "First Todo")]
-        let initialState = TodoState(todos: initialTodos)
+        let initialState = TodoState(todos: initialTodos, paginationState: .fetching)
         let todos = [Todo(title: "Test Todo")]
         let message = TodoMessage.todosReceived(todos)
         let (state, effect) = todoUpdate(message: message, state: initialState)

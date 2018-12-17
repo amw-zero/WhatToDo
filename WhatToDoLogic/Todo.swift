@@ -44,6 +44,7 @@ func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) 
     case let .todosReceived(todos):
         var newState = state
         newState.todos = state.todos + todos
+        newState.paginationState = .idle
         return (newState, nil)
     case .fetchSuggestedPage where .idle == state.paginationState:
         let nextTodosPage = state.suggestedTodoPage + 1
