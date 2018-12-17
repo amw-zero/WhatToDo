@@ -20,7 +20,7 @@ class HomeVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        shell.receive(.todo(.suggest))
+        shell.receive(.todo(.fetchSuggestedPage))
         subscriptionId = shell.subscribe(subscription: render)
     }
     override func viewWillDisappear(_ animated: Bool) {

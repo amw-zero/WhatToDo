@@ -37,10 +37,6 @@ func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) 
     switch message {
     case .create:
         return (state, .showModal(.createTodo))
-    case .suggest:
-        var newState = state
-        newState.paginationState = .fetching
-        return (newState, .fetchData(.suggestedTodo(page: 0)))
     case let .todosReceived(todos):
         var newState = state
         newState.todos = state.todos + todos

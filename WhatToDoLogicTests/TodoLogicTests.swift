@@ -17,15 +17,6 @@ class TodoLogicTests: XCTestCase {
         XCTAssertEqual(state, initialState)
         XCTAssertEqual(effect, Effect.showModal(.createTodo))
     }
-    func testDisplayingSuggestedTodos() {
-        let initialState = TodoState()
-        let message = TodoMessage.suggest
-        let (state, effect) = todoUpdate(message: message, state: initialState)
-        var expectedState = initialState
-        expectedState.paginationState = .fetching
-        XCTAssertEqual(state, expectedState)
-        XCTAssertEqual(effect, Effect.fetchData(.suggestedTodo(page: 0)))
-    }
     func testTodosReceived() {
         let initialTodos = [Todo(title: "First Todo")]
         let initialState = TodoState(todos: initialTodos, paginationState: .fetching)
