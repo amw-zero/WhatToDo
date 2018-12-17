@@ -49,14 +49,17 @@ func todoUpdate(message: TodoMessage, state: TodoState) -> (TodoState, Effect?) 
     case .create:
         return (state, .showModal(.createTodo))
     case let .todosReceived(todos):
-        let newState = state.copy(todos: state.todos + todos, paginationState: .idle)
-        return (newState, nil)
-    case .fetchSuggestedPage where .idle == state.paginationState:
-        let newState = state.copy(
-            suggestedTodoPage: state.suggestedTodoPage + 1,
-            paginationState: .fetching
+        return (
+            state.copy(todos: state.todos + todos, paginationState: .idle),
+            nil
         )
-        return (newState, .fetchData(.suggestedTodo(page: state.suggestedTodoPage)))
+    case .fetchSuggestedPage where .idle == state.paginationState:
+        return (
+            state.copy(
+                suggestedTodoPage: state.suggestedTodoPage + 1,
+                paginationState: .fetching),
+            .fetchData(.suggestedTodo(page: state.suggestedTodoPage))
+        )
     default:
         return (state, nil)
     }
