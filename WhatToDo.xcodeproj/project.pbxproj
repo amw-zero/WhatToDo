@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA84A1C121C88D8E003D707B /* ViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84A1C021C88D8E003D707B /* ViewDebug.swift */; };
 		FA90703521C42AA100680234 /* WhatToDoLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA90702C21C42AA100680234 /* WhatToDoLogic.framework */; };
 		FA90703C21C42AA100680234 /* WhatToDoLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90703B21C42AA100680234 /* WhatToDoLogicTests.swift */; };
 		FA90703E21C42AA100680234 /* WhatToDoLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = FA90702E21C42AA100680234 /* WhatToDoLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,6 +23,7 @@
 		FAABBF2C21C724870097433B /* TodoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF2B21C724870097433B /* TodoTVC.swift */; };
 		FAABBF2E21C7289F0097433B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF2D21C7289F0097433B /* Style.swift */; };
 		FAABBF3021C807B10097433B /* CreateTodoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF2F21C807B10097433B /* CreateTodoVC.swift */; };
+		FAABBF3221C878010097433B /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF3121C878010097433B /* FormTextField.swift */; };
 		FABCD1C821C1EF01009BD3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */; };
 		FABCD1CA21C1EF01009BD3B8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCD1C921C1EF01009BD3B8 /* HomeVC.swift */; };
 		FABCD1CD21C1EF01009BD3B8 /* HomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABCD1CB21C1EF01009BD3B8 /* HomeVC.storyboard */; };
@@ -84,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA84A1C021C88D8E003D707B /* ViewDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDebug.swift; sourceTree = "<group>"; };
 		FA90702C21C42AA100680234 /* WhatToDoLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatToDoLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA90702E21C42AA100680234 /* WhatToDoLogic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhatToDoLogic.h; sourceTree = "<group>"; };
 		FA90702F21C42AA100680234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 		FAABBF2B21C724870097433B /* TodoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTVC.swift; sourceTree = "<group>"; };
 		FAABBF2D21C7289F0097433B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		FAABBF2F21C807B10097433B /* CreateTodoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoVC.swift; sourceTree = "<group>"; };
+		FAABBF3121C878010097433B /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		FAABBF3421C879090097433B /* WhatToDo.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WhatToDo.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		FABCD1C421C1EF01009BD3B8 /* WhatToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FABCD1C921C1EF01009BD3B8 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -178,9 +183,18 @@
 			path = WhatToDoLogicTests;
 			sourceTree = "<group>";
 		};
+		FAABBF3321C878F10097433B /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				FAABBF3421C879090097433B /* WhatToDo.playground */,
+			);
+			path = Playgrounds;
+			sourceTree = "<group>";
+		};
 		FABCD1BB21C1EF01009BD3B8 = {
 			isa = PBXGroup;
 			children = (
+				FAABBF3321C878F10097433B /* Playgrounds */,
 				FABCD1C621C1EF01009BD3B8 /* WhatToDo */,
 				FABCD1DB21C1EF04009BD3B8 /* WhatToDoTests */,
 				FABCD1E621C1EF04009BD3B8 /* WhatToDoUITests */,
@@ -217,6 +231,8 @@
 				FAABBF1F21C43AAB0097433B /* Shell.swift */,
 				FAABBF2D21C7289F0097433B /* Style.swift */,
 				FAABBF2B21C724870097433B /* TodoTVC.swift */,
+				FAABBF3121C878010097433B /* FormTextField.swift */,
+				FA84A1C021C88D8E003D707B /* ViewDebug.swift */,
 			);
 			path = WhatToDo;
 			sourceTree = "<group>";
@@ -463,9 +479,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA84A1C121C88D8E003D707B /* ViewDebug.swift in Sources */,
 				FABCD1CA21C1EF01009BD3B8 /* HomeVC.swift in Sources */,
 				FAABBF2E21C7289F0097433B /* Style.swift in Sources */,
 				FA90704C21C42E5800680234 /* LambdaCore.swift in Sources */,
+				FAABBF3221C878010097433B /* FormTextField.swift in Sources */,
 				FAABBF3021C807B10097433B /* CreateTodoVC.swift in Sources */,
 				FAABBF2021C43AAB0097433B /* Shell.swift in Sources */,
 				FAABBF2C21C724870097433B /* TodoTVC.swift in Sources */,

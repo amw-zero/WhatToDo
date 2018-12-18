@@ -19,7 +19,7 @@ class HomeVC: UIViewController {
         tableView.reloadData()
     }
 }
-
+    
 // MARK: UIViewController Lifecycle Methods
 extension HomeVC {
     override func viewDidLoad() {
