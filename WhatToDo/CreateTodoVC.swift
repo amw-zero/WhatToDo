@@ -7,40 +7,88 @@
 //
 
 import UIKit
+
 class CreateTodoVC: UIViewController {
+    let button: UIButton = CreateTodoVC.dismissButton()
+    let titleField: UIStackView = CreateTodoVC.titleField()
+    let halfFields: UIStackView = CreateTodoVC.halfFields()
     override func viewDidLoad() {
-        let fullField = horizontalStackView(
-            arrangedSubviews: [FormTextField(labelText: "Title", placeholderText: "Enter Title")])
-        let halfFields = withAutoLayout(horizontalStackView(
-            arrangedSubviews: [
-                FormTextField(labelText: "Field 1"), FormTextField(labelText: "Field 2")]))
-        let children = [fullField, halfFields]
-        children.forEach {
-            view.addSubview($0)
-            _ = withAutoLayout($0)
-        }
-        activateConstraints(withChildren: (fullField, halfFields))
-    }
-    @IBAction func dismiss(button: UIButton) {
-        dismiss(animated: true, completion: nil)
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        viewTree(view.vt.children {[
+            button.vt,
+            titleField.vt,
+            halfFields.vt
+        ]})
+        layout()
     }
     
-    private func activateConstraints(withChildren children: (UIView, UIView)) {
-        let (fullField, halfFields) = children
+    private func layout() {
+        NSLayoutConstraint.activate([
+            buttonLayout(),
+            titleFieldLayout(),
+            halfFieldsLayout()
+        ].flatMap { $0 })
+    }
+}
+
+extension CreateTodoVC {
+    static func dismissButton() -> UIButton {
+        let button = withAutoLayout(UIButton(type: .system))
+        button.addTarget(self, action: #selector(dismiss(button:)), for: .touchUpInside)
+        button.setTitle("Dismiss", for: .normal)
+        return button
+    }
+    private func buttonLayout() -> [NSLayoutConstraint] {
         let layoutGuide = view.safeAreaLayoutGuide
-        let constraints = [
-            equalWidths(fullField, parent: view),
-            equalWidths(halfFields, parent: view),
-            [
-                fullField.topAnchor.constraint(
-                    equalTo: layoutGuide.topAnchor, constant: 80),
-                halfFields.topAnchor.constraint(
-                    equalTo: fullField.bottomAnchor, constant: 20),
-                fullField.heightAnchor.constraint(equalTo: fullField.heightAnchor),
-                halfFields.heightAnchor.constraint(equalTo: halfFields.heightAnchor)
-            ]
-            ].flatMap { $0 }
-        NSLayoutConstraint.activate(constraints)
+        return [
+            button.topAnchor.constraint(equalTo: layoutGuide.topAnchor, constant: 20),
+            button.leftAnchor.constraint(equalTo: layoutGuide.leftAnchor, constant: 20)
+        ]
+    }
+    @objc func dismiss(button: UIButton) {
+        // crash
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CreateTodoVC {
+    static func titleField() -> UIStackView {
+        return withAutoLayout(horizontalStackView(
+            arrangedSubviews: [
+                FormTextField(
+                    labelText: "Title",
+                    placeholderText: "Enter Title")]))
+    }
+    func titleFieldLayout() -> [NSLayoutConstraint] {
+        let layoutGuide = view.safeAreaLayoutGuide
+        return equalWidths(titleField, parent: view) + [
+            titleField.topAnchor.constraint(
+                equalTo: layoutGuide.topAnchor,
+                constant: 80),
+            titleField.heightAnchor.constraint(
+                    equalTo: titleField.heightAnchor),
+        ]
+    }
+}
+
+extension CreateTodoVC {
+    static func halfFields() -> UIStackView {
+        return withAutoLayout(horizontalStackView(
+            arrangedSubviews: [
+                FormTextField(
+                    labelText: "Field 1"),
+                FormTextField(
+                    labelText: "Field 2")]))
+    }
+    func halfFieldsLayout() -> [NSLayoutConstraint] {
+        return equalWidths(halfFields, parent: view) + [
+            halfFields.topAnchor.constraint(
+                equalTo: titleField.bottomAnchor,
+                constant: 20),
+            halfFields.heightAnchor.constraint(
+                equalTo: halfFields.heightAnchor)
+        ]
     }
 }
 

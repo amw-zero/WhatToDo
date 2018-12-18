@@ -27,9 +27,7 @@ struct ShowModalExecutor: Executor {
         self.window = window
     }
     func execute<State, Message, Effect>(inShell shell: Shell<State, Message, Effect>) {
-        let storyboard = UIStoryboard(name: "CreateTodoVC", bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController()!
-        window?.rootViewController?.present(viewController, animated: true, completion: nil)
+        window?.rootViewController?.present(CreateTodoVC(), animated: true, completion: nil)
     }
 }
 

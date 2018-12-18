@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA84A1C121C88D8E003D707B /* ViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84A1C021C88D8E003D707B /* ViewDebug.swift */; };
+		FA84A1C521C94480003D707B /* ViewTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84A1C421C94480003D707B /* ViewTree.swift */; };
 		FA90703521C42AA100680234 /* WhatToDoLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA90702C21C42AA100680234 /* WhatToDoLogic.framework */; };
 		FA90703C21C42AA100680234 /* WhatToDoLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90703B21C42AA100680234 /* WhatToDoLogicTests.swift */; };
 		FA90703E21C42AA100680234 /* WhatToDoLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = FA90702E21C42AA100680234 /* WhatToDoLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,7 +20,6 @@
 		FA90705621C4319D00680234 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90705521C4319D00680234 /* Todo.swift */; };
 		FAABBF1E21C4372F0097433B /* RootTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF1D21C4372F0097433B /* RootTests.swift */; };
 		FAABBF2021C43AAB0097433B /* Shell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF1F21C43AAB0097433B /* Shell.swift */; };
-		FAABBF2221C478980097433B /* CreateTodoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAABBF2121C478980097433B /* CreateTodoVC.storyboard */; };
 		FAABBF2C21C724870097433B /* TodoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF2B21C724870097433B /* TodoTVC.swift */; };
 		FAABBF2E21C7289F0097433B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF2D21C7289F0097433B /* Style.swift */; };
 		FAABBF3021C807B10097433B /* CreateTodoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABBF2F21C807B10097433B /* CreateTodoVC.swift */; };
@@ -87,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		FA84A1C021C88D8E003D707B /* ViewDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDebug.swift; sourceTree = "<group>"; };
+		FA84A1C421C94480003D707B /* ViewTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTree.swift; sourceTree = "<group>"; };
 		FA90702C21C42AA100680234 /* WhatToDoLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatToDoLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA90702E21C42AA100680234 /* WhatToDoLogic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WhatToDoLogic.h; sourceTree = "<group>"; };
 		FA90702F21C42AA100680234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		FA90705521C4319D00680234 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		FAABBF1D21C4372F0097433B /* RootTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTests.swift; sourceTree = "<group>"; };
 		FAABBF1F21C43AAB0097433B /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
-		FAABBF2121C478980097433B /* CreateTodoVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateTodoVC.storyboard; sourceTree = "<group>"; };
 		FAABBF2B21C724870097433B /* TodoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTVC.swift; sourceTree = "<group>"; };
 		FAABBF2D21C7289F0097433B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		FAABBF2F21C807B10097433B /* CreateTodoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoVC.swift; sourceTree = "<group>"; };
@@ -221,7 +221,6 @@
 			children = (
 				FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */,
 				FABCD1CE21C1EF04009BD3B8 /* Assets.xcassets */,
-				FAABBF2121C478980097433B /* CreateTodoVC.storyboard */,
 				FAABBF2F21C807B10097433B /* CreateTodoVC.swift */,
 				FABCD1CB21C1EF01009BD3B8 /* HomeVC.storyboard */,
 				FABCD1C921C1EF01009BD3B8 /* HomeVC.swift */,
@@ -233,6 +232,7 @@
 				FAABBF2B21C724870097433B /* TodoTVC.swift */,
 				FAABBF3121C878010097433B /* FormTextField.swift */,
 				FA84A1C021C88D8E003D707B /* ViewDebug.swift */,
+				FA84A1C421C94480003D707B /* ViewTree.swift */,
 			);
 			path = WhatToDo;
 			sourceTree = "<group>";
@@ -433,7 +433,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FABCD1D221C1EF04009BD3B8 /* LaunchScreen.storyboard in Resources */,
-				FAABBF2221C478980097433B /* CreateTodoVC.storyboard in Resources */,
 				FABCD1CF21C1EF04009BD3B8 /* Assets.xcassets in Resources */,
 				FABCD1CD21C1EF01009BD3B8 /* HomeVC.storyboard in Resources */,
 			);
@@ -483,6 +482,7 @@
 				FABCD1CA21C1EF01009BD3B8 /* HomeVC.swift in Sources */,
 				FAABBF2E21C7289F0097433B /* Style.swift in Sources */,
 				FA90704C21C42E5800680234 /* LambdaCore.swift in Sources */,
+				FA84A1C521C94480003D707B /* ViewTree.swift in Sources */,
 				FAABBF3221C878010097433B /* FormTextField.swift in Sources */,
 				FAABBF3021C807B10097433B /* CreateTodoVC.swift in Sources */,
 				FAABBF2021C43AAB0097433B /* Shell.swift in Sources */,
