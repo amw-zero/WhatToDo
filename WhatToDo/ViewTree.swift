@@ -8,29 +8,30 @@
 
 import UIKit
 
-struct ViewTreeNode {
-    let view: UIView
-    var childNodes: [ViewTreeNode] = []
-    mutating func children(childrenBlock: () -> [ViewTreeNode]) -> ViewTreeNode {
-        childNodes = childrenBlock()
-        return self
+enum Node {
+    case view(UIView, [Node])
+    case stackView(UIStackView, [Node])
+    var view: UIView {
+        switch self {
+        case let .view(view, _):
+            return view
+        case let .stackView(view, _):
+            return view
+        }
     }
 }
 
-protocol ViewTreeCreator { }
-
-extension ViewTreeCreator where Self: UIView {
-    var vt: ViewTreeNode {
-        get { return ViewTreeNode(view: self, childNodes: []) }
-        set { }
-    }
-}
-
-extension UIView: ViewTreeCreator { }
-
-func viewTree(_ root: ViewTreeNode) {
-    for child in root.childNodes {
-        root.view.addSubview(child.view)
-        viewTree(child)
+func viewTree(_ root: Node) {
+    switch root {
+    case let .view(uiView, children):
+        for child in children {
+            uiView.addSubview(child.view)
+            viewTree(child)
+        }
+    case let .stackView(stackView, children):
+        for child in children {
+            stackView.addArrangedSubview(child.view)
+            viewTree(child)
+        }
     }
 }

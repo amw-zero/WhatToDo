@@ -13,17 +13,22 @@ class CreateTodoVC: UIViewController {
     let saveButton: UIButton = CreateTodoVC.saveButton()
     let titleField: UIStackView = CreateTodoVC.titleField()
     let halfFields: UIStackView = CreateTodoVC.halfFields()
+    let formField1 = FormTextField(labelText: "Field 1")
+    let formField2 = FormTextField(labelText: "Field 2")
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         button.addTarget(self, action: #selector(dismiss(button:)), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(save(button:)), for: .touchUpInside)
-        viewTree(view.vt.children {[
-            button.vt,
-            titleField.vt,
-            halfFields.vt,
-            saveButton.vt
-        ]})
+        viewTree(.view(view, [
+            .view(button, []),
+            .view(titleField, []),
+            .stackView(halfFields, [
+                .view(formField1, []),
+                .view(formField2, [])
+            ]),
+            .view(saveButton, [])
+        ]))
         layout()
     }
     
@@ -95,12 +100,10 @@ extension CreateTodoVC {
 
 extension CreateTodoVC {
     static func halfFields() -> UIStackView {
-        return withAutoLayout(horizontalStackView(
-            arrangedSubviews: [
-                FormTextField(
-                    labelText: "Field 1"),
-                FormTextField(
-                    labelText: "Field 2")]))
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        return withAutoLayout(stackView)
     }
     func halfFieldsLayout() -> [NSLayoutConstraint] {
         return equalWidths(halfFields, parent: view) + [
