@@ -16,13 +16,13 @@ func withAutoLayout<T: UIView>(_ view: T) -> T {
 class FormTextField: UIView {
     let label: UILabel = withAutoLayout(UILabel())
     let textField: UITextField = withAutoLayout(UITextField())
-    init() {
+    init(labelText: String, placeholderText: String = "") {
         super.init(frame: .zero)
         _ = withAutoLayout(self)
         addSubview(label)
         addSubview(textField)
-        label.text = "Testing"
-        textField.placeholder = "Enter text"
+        label.text = labelText
+        textField.placeholder = placeholderText
         textField.borderStyle = .roundedRect
     }
     required init?(coder aDecoder: NSCoder) {

@@ -9,15 +9,25 @@
 import UIKit
 class CreateTodoVC: UIViewController {
     override func viewDidLoad() {
-        let layoutGuide = view.safeAreaLayoutGuide
-        let fullField = horizontalStackView(arrangedSubviews: [FormTextField()])
+        let fullField = horizontalStackView(
+            arrangedSubviews: [FormTextField(labelText: "Title", placeholderText: "Enter Title")])
         let halfFields = withAutoLayout(horizontalStackView(
-            arrangedSubviews: [FormTextField(), FormTextField()]))
+            arrangedSubviews: [
+                FormTextField(labelText: "Field 1"), FormTextField(labelText: "Field 2")]))
         let children = [fullField, halfFields]
         children.forEach {
             view.addSubview($0)
             _ = withAutoLayout($0)
         }
+        activateConstraints(withChildren: (fullField, halfFields))
+    }
+    @IBAction func dismiss(button: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    private func activateConstraints(withChildren children: (UIView, UIView)) {
+        let (fullField, halfFields) = children
+        let layoutGuide = view.safeAreaLayoutGuide
         let constraints = [
             equalWidths(fullField, parent: view),
             equalWidths(halfFields, parent: view),
@@ -29,11 +39,8 @@ class CreateTodoVC: UIViewController {
                 fullField.heightAnchor.constraint(equalTo: fullField.heightAnchor),
                 halfFields.heightAnchor.constraint(equalTo: halfFields.heightAnchor)
             ]
-        ].flatMap { $0 }
+            ].flatMap { $0 }
         NSLayoutConstraint.activate(constraints)
-    }
-    @IBAction func dismiss(button: UIButton) {
-        dismiss(animated: true, completion: nil)
     }
 }
 
