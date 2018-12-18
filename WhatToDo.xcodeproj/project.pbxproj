@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA271FC121C99F8300B1EC07 /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA271FC021C99F8300B1EC07 /* AutoLayoutUtil.swift */; };
 		FA84A1C121C88D8E003D707B /* ViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84A1C021C88D8E003D707B /* ViewDebug.swift */; };
 		FA84A1C521C94480003D707B /* ViewTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84A1C421C94480003D707B /* ViewTree.swift */; };
 		FA90703521C42AA100680234 /* WhatToDoLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA90702C21C42AA100680234 /* WhatToDoLogic.framework */; };
@@ -86,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA271FC021C99F8300B1EC07 /* AutoLayoutUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUtil.swift; sourceTree = "<group>"; };
 		FA84A1C021C88D8E003D707B /* ViewDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDebug.swift; sourceTree = "<group>"; };
 		FA84A1C421C94480003D707B /* ViewTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTree.swift; sourceTree = "<group>"; };
 		FA90702C21C42AA100680234 /* WhatToDoLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatToDoLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,7 +223,9 @@
 			children = (
 				FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */,
 				FABCD1CE21C1EF04009BD3B8 /* Assets.xcassets */,
+				FA271FC021C99F8300B1EC07 /* AutoLayoutUtil.swift */,
 				FAABBF2F21C807B10097433B /* CreateTodoVC.swift */,
+				FAABBF3121C878010097433B /* FormTextField.swift */,
 				FABCD1CB21C1EF01009BD3B8 /* HomeVC.storyboard */,
 				FABCD1C921C1EF01009BD3B8 /* HomeVC.swift */,
 				FABCD1D321C1EF04009BD3B8 /* Info.plist */,
@@ -230,7 +234,6 @@
 				FAABBF1F21C43AAB0097433B /* Shell.swift */,
 				FAABBF2D21C7289F0097433B /* Style.swift */,
 				FAABBF2B21C724870097433B /* TodoTVC.swift */,
-				FAABBF3121C878010097433B /* FormTextField.swift */,
 				FA84A1C021C88D8E003D707B /* ViewDebug.swift */,
 				FA84A1C421C94480003D707B /* ViewTree.swift */,
 			);
@@ -486,6 +489,7 @@
 				FAABBF3221C878010097433B /* FormTextField.swift in Sources */,
 				FAABBF3021C807B10097433B /* CreateTodoVC.swift in Sources */,
 				FAABBF2021C43AAB0097433B /* Shell.swift in Sources */,
+				FA271FC121C99F8300B1EC07 /* AutoLayoutUtil.swift in Sources */,
 				FAABBF2C21C724870097433B /* TodoTVC.swift in Sources */,
 				FABCD1C821C1EF01009BD3B8 /* AppDelegate.swift in Sources */,
 			);
