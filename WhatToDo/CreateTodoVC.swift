@@ -10,16 +10,19 @@ import UIKit
 
 class CreateTodoVC: UIViewController {
     let button: UIButton = CreateTodoVC.dismissButton()
+    let saveButton: UIButton = CreateTodoVC.saveButton()
     let titleField: UIStackView = CreateTodoVC.titleField()
     let halfFields: UIStackView = CreateTodoVC.halfFields()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         button.addTarget(self, action: #selector(dismiss(button:)), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(save(button:)), for: .touchUpInside)
         viewTree(view.vt.children {[
             button.vt,
             titleField.vt,
-            halfFields.vt
+            halfFields.vt,
+            saveButton.vt
         ]})
         layout()
     }
@@ -28,7 +31,8 @@ class CreateTodoVC: UIViewController {
         NSLayoutConstraint.activate([
             buttonLayout(),
             titleFieldLayout(),
-            halfFieldsLayout()
+            halfFieldsLayout(),
+            saveButtonLayout()
         ].flatMap { $0 })
     }
 }
@@ -48,6 +52,24 @@ extension CreateTodoVC {
     }
     @objc func dismiss(button: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CreateTodoVC {
+    static func saveButton() -> UIButton {
+        let button = withAutoLayout(UIButton(type: .system))
+        button.setTitle("Save", for: .normal)
+        return button
+    }
+    private func saveButtonLayout() -> [NSLayoutConstraint] {
+        let layoutGuide = view.safeAreaLayoutGuide
+        return equalWidths(saveButton, parent: view, padding: 20) + [
+            saveButton.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor, constant: 20),
+            saveButton.heightAnchor.constraint(equalToConstant: 60)
+        ]
+    }
+    @objc func save(button: UIButton) {
+        print("save")
     }
 }
 
@@ -110,6 +132,6 @@ func fill(_ view: UIView, inParent parent: UIView) {
 func equalWidths(_ view: UIView, parent: UIView, padding: CGFloat = 0) -> [NSLayoutConstraint] {
     return [
         view.leftAnchor.constraint(equalTo: parent.leftAnchor, constant: padding),
-        view.rightAnchor.constraint(equalTo: parent.rightAnchor, constant: padding)
+        view.rightAnchor.constraint(equalTo: parent.rightAnchor, constant: -padding)
     ]
 }
