@@ -15,6 +15,7 @@ class CreateTodoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        button.addTarget(self, action: #selector(dismiss(button:)), for: .touchUpInside)
         viewTree(view.vt.children {[
             button.vt,
             titleField.vt,
@@ -35,7 +36,6 @@ class CreateTodoVC: UIViewController {
 extension CreateTodoVC {
     static func dismissButton() -> UIButton {
         let button = withAutoLayout(UIButton(type: .system))
-        button.addTarget(self, action: #selector(dismiss(button:)), for: .touchUpInside)
         button.setTitle("Dismiss", for: .normal)
         return button
     }
@@ -47,7 +47,6 @@ extension CreateTodoVC {
         ]
     }
     @objc func dismiss(button: UIButton) {
-        // crash
         dismiss(animated: true, completion: nil)
     }
 }
