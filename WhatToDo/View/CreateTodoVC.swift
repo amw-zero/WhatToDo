@@ -33,12 +33,12 @@ class CreateTodoVC: UIViewController {
     }
     
     private func layout() {
-        NSLayoutConstraint.activate([
-            buttonLayout(),
-            titleFieldLayout(),
-            halfFieldsLayout(),
+        NSLayoutConstraint.activate(
+            buttonLayout() +
+            titleFieldLayout() +
+            halfFieldsLayout() +
             saveButtonLayout()
-        ].flatMap { $0 })
+        )
     }
 }
 
