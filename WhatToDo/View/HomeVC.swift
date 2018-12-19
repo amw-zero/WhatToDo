@@ -87,7 +87,7 @@ extension HomeVC {
             addTodoButton.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor, constant: -40)
         ]
     }
-    @IBAction func addTodo(button: UIButton) {
+    @objc func addTodo(button: UIButton) {
         shell.receive(.todo(.create))
     }
 }
