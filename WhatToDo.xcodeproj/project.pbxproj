@@ -172,11 +172,19 @@
 				FABCD1CB21C1EF01009BD3B8 /* HomeVC.storyboard */,
 				FABCD1C921C1EF01009BD3B8 /* HomeVC.swift */,
 				FAABBF2D21C7289F0097433B /* Style.swift */,
-				FA84A1C421C94480003D707B /* Subviews.swift */,
 				FAABBF2B21C724870097433B /* TodoTVC.swift */,
 				FA84A1C021C88D8E003D707B /* ViewDebug.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FA271FF121C9E91700B1EC07 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				FA90704B21C42E5800680234 /* LambdaCore.swift */,
+				FA84A1C421C94480003D707B /* Subviews.swift */,
+			);
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		FA90702D21C42AA100680234 /* WhatToDoLogic */ = {
@@ -237,13 +245,13 @@
 		FABCD1C621C1EF01009BD3B8 /* WhatToDo */ = {
 			isa = PBXGroup;
 			children = (
-				FA271FF021C9E45300B1EC07 /* View */,
 				FABCD1C721C1EF01009BD3B8 /* AppDelegate.swift */,
 				FABCD1CE21C1EF04009BD3B8 /* Assets.xcassets */,
 				FABCD1D321C1EF04009BD3B8 /* Info.plist */,
-				FA90704B21C42E5800680234 /* LambdaCore.swift */,
 				FABCD1D021C1EF04009BD3B8 /* LaunchScreen.storyboard */,
+				FA271FF121C9E91700B1EC07 /* Libraries */,
 				FAABBF1F21C43AAB0097433B /* Shell.swift */,
+				FA271FF021C9E45300B1EC07 /* View */,
 			);
 			path = WhatToDo;
 			sourceTree = "<group>";
