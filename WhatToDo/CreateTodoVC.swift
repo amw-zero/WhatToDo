@@ -20,15 +20,15 @@ class CreateTodoVC: UIViewController {
         view.backgroundColor = .white
         button.addTarget(self, action: #selector(dismiss(button:)), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(save(button:)), for: .touchUpInside)
-        viewTree(.view(view, [
-            .view(button, []),
-            .view(titleField, []),
-            .stackView(halfFields, [
-                .view(formField1, []),
-                .view(formField2, [])
-            ]),
-            .view(saveButton, [])
-        ]))
+        view.subviews {[
+            button,
+            titleField,
+            halfFields.arrangedSubviews {[
+                formField1,
+                formField2
+            ]},
+            saveButton
+        ]}
         layout()
     }
     
