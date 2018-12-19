@@ -15,19 +15,6 @@ class HomeVC: UIViewController {
     var todos: [Todo] = []
     let tableView = withAutoLayout(UITableView(frame: .zero))
     let addTodoButton = HomeVC.addTodoButton()
-    func render(state: State) {
-        todos = state.todoState.todos
-        tableView.reloadData()
-    }
-    func tableViewLayout() -> [NSLayoutConstraint] {
-        let layoutGuide = view.safeAreaLayoutGuide
-        return [
-            tableView.leftAnchor.constraint(equalTo: layoutGuide.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: layoutGuide.rightAnchor),
-            tableView.topAnchor.constraint(equalTo: layoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor)
-        ]
-    }
 }
     
 // MARK: UIViewController Lifecycle Methods
@@ -50,6 +37,9 @@ extension HomeVC {
         super.viewWillDisappear(animated)
         subscriptionId.map { shell.unsubscribe(subscriptionId: $0) }
     }
+}
+
+extension HomeVC {
     func setupView() {
         view.subviews {[
             tableView,
@@ -58,6 +48,19 @@ extension HomeVC {
         NSLayoutConstraint.activate(
             tableViewLayout() + addButtonLayout()
         )
+    }
+    func render(state: State) {
+        todos = state.todoState.todos
+        tableView.reloadData()
+    }
+    func tableViewLayout() -> [NSLayoutConstraint] {
+        let layoutGuide = view.safeAreaLayoutGuide
+        return [
+            tableView.leftAnchor.constraint(equalTo: layoutGuide.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: layoutGuide.rightAnchor),
+            tableView.topAnchor.constraint(equalTo: layoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor)
+        ]
     }
 }
 
