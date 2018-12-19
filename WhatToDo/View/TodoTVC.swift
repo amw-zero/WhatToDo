@@ -9,14 +9,26 @@
 import UIKit
 
 class TodoTVC: UITableViewCell {
-    let label = TodoTVC.titleLabel()
+    let roundedContainer = TodoTVC.roundedContainer()
+    let titleLabel = TodoTVC.titleLabel()
+    let boldDescriptionLabel = TodoTVC.boldDescriptionLabel()
+//    let overviewTableView = TodoTVC.overviewTableView()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
+        contentView.backgroundColor = .lightGray
         contentView.subviews {[
-            label
+            roundedContainer.subviews {[
+                titleLabel,
+                boldDescriptionLabel,
+//                overviewTableView
+            ]}
         ]}
         NSLayoutConstraint.activate(
-            labelLayout() + cellLayout()
+            roundedContainerLayout()
+            + titleLabelLayout()
+            + cellLayout()
+            + boldDescriptionLayout()
         )
     }
     required init?(coder aDecoder: NSCoder) {
@@ -30,16 +42,56 @@ class TodoTVC: UITableViewCell {
 }
 
 extension TodoTVC {
+    static func roundedContainer() -> UIView {
+        let view = withAutoLayout(UIView())
+        view.layer.cornerRadius = 10
+        view.backgroundColor = .white
+        return view
+    }
+    func roundedContainerLayout() -> [NSLayoutConstraint] {
+        return fill(roundedContainer, inParent: contentView, padding: 10)
+    }
+}
+
+extension TodoTVC {
     static func titleLabel() -> UILabel {
-        let label = withAutoLayout(UILabel(frame: .zero))
-        label.textColor = .black
+        let label = withAutoLayout(UILabel())
+        label.textColor = .gray
         return label
     }
-    func labelLayout() -> [NSLayoutConstraint] {
+    func titleLabelLayout() -> [NSLayoutConstraint] {
         return [
-            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            label.centerYAnchor.constraint(lessThanOrEqualTo: contentView.centerYAnchor),
-            label.heightAnchor.constraint(equalToConstant: 100)
+            titleLabel.leftAnchor.constraint(equalTo: roundedContainer.leftAnchor, constant: 50),
+            titleLabel.topAnchor.constraint(equalTo: roundedContainer.topAnchor, constant: 20)
         ]
     }
 }
+
+extension TodoTVC {
+    static func boldDescriptionLabel() -> UILabel {
+        let label = withAutoLayout(UILabel())
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        return label
+    }
+    func boldDescriptionLayout() -> [NSLayoutConstraint] {
+        return [
+            boldDescriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            boldDescriptionLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
+        ]
+    }
+}
+
+//extension TodoTVC {
+//    static func overviewTableView() -> UITableView {
+//        let tableView = withAutoLayout(UITableView())
+//        tableView.dataSource = SuggestedTodoDataSource()
+//        tableView.register(SuggestedTodoTVC, forCellReuseIdentifier: "SuggestedTodoTVC")
+//        return tableView
+//    }
+//    func overviewTableViewLayout() -> [NSLayoutConstraint] {
+//        return equalWidths(overviewTableView, parent: contentView) + [
+//            overviewTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+//
+//        ]
+//    }
+//}

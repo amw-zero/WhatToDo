@@ -15,13 +15,13 @@ func horizontalStackView(arrangedSubviews: [UIView] = []) -> UIStackView {
     return stackView
 }
 
-func fill(_ view: UIView, inParent parent: UIView) {
-    NSLayoutConstraint.activate([
-        view.topAnchor.constraint(equalTo: parent.topAnchor, constant: 0),
-        view.leftAnchor.constraint(equalTo: parent.leftAnchor, constant: 0),
-        view.rightAnchor.constraint(equalTo: parent.rightAnchor, constant: 0),
-        view.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: 0)
-    ])
+func fill(_ view: UIView, inParent parent: UIView, padding: CGFloat = 0) -> [NSLayoutConstraint] {
+    return [
+        view.topAnchor.constraint(equalTo: parent.topAnchor, constant: padding),
+        view.leftAnchor.constraint(equalTo: parent.leftAnchor, constant: padding),
+        view.rightAnchor.constraint(equalTo: parent.rightAnchor, constant: -padding),
+        view.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -padding)
+    ]
 }
 
 func equalWidths(_ view: UIView, parent: UIView, padding: CGFloat = 0) -> [NSLayoutConstraint] {

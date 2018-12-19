@@ -74,7 +74,8 @@ extension HomeVC: UITableViewDataSource {
             shell.receive(.todo(.fetchSuggestedPage))
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTVC") as! TodoTVC
-        cell.label.text = todos[indexPath.row].title
+        cell.titleLabel.text = todos[indexPath.row].title
+        cell.boldDescriptionLabel.text = "This is a Category"
         return cell
     }
 }
