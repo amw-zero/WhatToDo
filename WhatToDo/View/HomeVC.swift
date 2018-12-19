@@ -25,6 +25,7 @@ extension HomeVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         styleTableView(tableView)
+        tableView.register(TodoTVC.self, forCellReuseIdentifier: "TodoTVC")
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
