@@ -13,10 +13,20 @@ class HomeVC: UIViewController {
     let paginationThreshold = 5
     var subscriptionId: SubscriptionId?
     var todos: [Todo] = []
-    @IBOutlet weak var tableView: UITableView!
+    let tableView = withAutoLayout(UITableView(frame: .zero))
+    let addTodoButton = HomeVC.addTodoButton()
     func render(state: State) {
         todos = state.todoState.todos
         tableView.reloadData()
+    }
+    func tableViewLayout() -> [NSLayoutConstraint] {
+        let layoutGuide = view.safeAreaLayoutGuide
+        return [
+            tableView.leftAnchor.constraint(equalTo: layoutGuide.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: layoutGuide.rightAnchor),
+            tableView.topAnchor.constraint(equalTo: layoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor)
+        ]
     }
 }
     
@@ -24,8 +34,18 @@ class HomeVC: UIViewController {
 extension HomeVC {
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         styleTableView(tableView)
         tableView.register(TodoTVC.self, forCellReuseIdentifier: "TodoTVC")
+        tableView.dataSource = self
+        addTodoButton.addTarget(self, action: #selector(addTodo(button:)), for: .touchUpInside)
+        view.subviews {[
+            tableView,
+            addTodoButton
+        ]}
+        NSLayoutConstraint.activate(
+            tableViewLayout() + addButtonLayout()
+        )
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,7 +55,6 @@ extension HomeVC {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         subscriptionId.map { shell.unsubscribe(subscriptionId: $0) }
-        
     }
 }
 
@@ -54,8 +73,20 @@ extension HomeVC: UITableViewDataSource {
     }
 }
 
-// MARK: IBActions
+// MARK: Add Todo Button
 extension HomeVC {
+    static func addTodoButton() -> UIButton {
+        let button = withAutoLayout(UIButton(type: .roundedRect))
+        button.setTitle("Add Todo", for: .normal)
+        return button
+    }
+    func addButtonLayout() -> [NSLayoutConstraint] {
+        let layoutGuide = view.safeAreaLayoutGuide
+        return [
+            addTodoButton.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor),
+            addTodoButton.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor, constant: -40)
+        ]
+    }
     @IBAction func addTodo(button: UIButton) {
         shell.receive(.todo(.create))
     }

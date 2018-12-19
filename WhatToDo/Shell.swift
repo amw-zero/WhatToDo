@@ -15,8 +15,7 @@ struct SetViewExecutor: Executor {
         self.window = window
     }
     func execute<State, Message, Effect>(inShell shell: Shell<State, Message, Effect>) {
-        let storyboard = UIStoryboard(name: "HomeVC", bundle: nil)
-        window?.rootViewController = storyboard.instantiateInitialViewController()!
+        window?.rootViewController = HomeVC()
         window?.makeKeyAndVisible()
     }
 }
