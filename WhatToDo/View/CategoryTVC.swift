@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TodoTVC: UITableViewCell {
-    let roundedContainer = TodoTVC.roundedContainer()
-    let titleLabel = TodoTVC.titleLabel()
-    let boldDescriptionLabel = TodoTVC.boldDescriptionLabel()
-//    let overviewTableView = TodoTVC.overviewTableView()
+class CategoryTVC: UITableViewCell {
+    let roundedContainer = CategoryTVC.roundedContainer()
+    let titleLabel = CategoryTVC.titleLabel()
+    let boldDescriptionLabel = CategoryTVC.boldDescriptionLabel()
+    let overviewTableView = CategoryTVC.overviewTableView()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -21,7 +21,7 @@ class TodoTVC: UITableViewCell {
             roundedContainer.subviews {[
                 titleLabel,
                 boldDescriptionLabel,
-//                overviewTableView
+                overviewTableView
             ]}
         ]}
         NSLayoutConstraint.activate(
@@ -41,7 +41,7 @@ class TodoTVC: UITableViewCell {
     }
 }
 
-extension TodoTVC {
+extension CategoryTVC {
     static func roundedContainer() -> UIView {
         let view = withAutoLayout(UIView())
         view.layer.cornerRadius = 10
@@ -53,7 +53,7 @@ extension TodoTVC {
     }
 }
 
-extension TodoTVC {
+extension CategoryTVC {
     static func titleLabel() -> UILabel {
         let label = withAutoLayout(UILabel())
         label.textColor = .gray
@@ -67,7 +67,7 @@ extension TodoTVC {
     }
 }
 
-extension TodoTVC {
+extension CategoryTVC {
     static func boldDescriptionLabel() -> UILabel {
         let label = withAutoLayout(UILabel())
         label.font = UIFont.boldSystemFont(ofSize: 25)
@@ -81,17 +81,17 @@ extension TodoTVC {
     }
 }
 
-//extension TodoTVC {
-//    static func overviewTableView() -> UITableView {
-//        let tableView = withAutoLayout(UITableView())
+extension CategoryTVC {
+    static func overviewTableView() -> UITableView {
+        let tableView = withAutoLayout(UITableView())
 //        tableView.dataSource = SuggestedTodoDataSource()
 //        tableView.register(SuggestedTodoTVC, forCellReuseIdentifier: "SuggestedTodoTVC")
-//        return tableView
-//    }
-//    func overviewTableViewLayout() -> [NSLayoutConstraint] {
-//        return equalWidths(overviewTableView, parent: contentView) + [
-//            overviewTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-//
-//        ]
-//    }
-//}
+        return tableView
+    }
+    func overviewTableViewLayout() -> [NSLayoutConstraint] {
+        return equalWidths(overviewTableView, parent: contentView) + [
+            overviewTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            overviewTableView.heightAnchor.constraint(equalToConstant: 200)
+        ]
+    }
+}
