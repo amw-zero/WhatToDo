@@ -39,13 +39,7 @@ extension HomeVC {
         tableView.register(TodoTVC.self, forCellReuseIdentifier: "TodoTVC")
         tableView.dataSource = self
         addTodoButton.addTarget(self, action: #selector(addTodo(button:)), for: .touchUpInside)
-        view.subviews {[
-            tableView,
-            addTodoButton
-        ]}
-        NSLayoutConstraint.activate(
-            tableViewLayout() + addButtonLayout()
-        )
+        setupView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,6 +49,15 @@ extension HomeVC {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         subscriptionId.map { shell.unsubscribe(subscriptionId: $0) }
+    }
+    func setupView() {
+        view.subviews {[
+            tableView,
+            addTodoButton
+        ]}
+        NSLayoutConstraint.activate(
+            tableViewLayout() + addButtonLayout()
+        )
     }
 }
 
