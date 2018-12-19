@@ -13,10 +13,13 @@ class CategoryTVC: UITableViewCell {
     let titleLabel = CategoryTVC.titleLabel()
     let boldDescriptionLabel = CategoryTVC.boldDescriptionLabel()
     let overviewTableView = CategoryTVC.overviewTableView()
+    let categoryOverviewDataSource: CategoryOverviewDataSource
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        categoryOverviewDataSource = CategoryOverviewDataSource(forTableView: overviewTableView)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         contentView.backgroundColor = .lightGray
+        overviewTableView.dataSource = categoryOverviewDataSource
         contentView.subviews {[
             roundedContainer.subviews {[
                 titleLabel,
@@ -25,18 +28,21 @@ class CategoryTVC: UITableViewCell {
             ]}
         ]}
         NSLayoutConstraint.activate(
-            roundedContainerLayout()
+            cellLayout()
+            + roundedContainerLayout()
             + titleLabelLayout()
             + cellLayout()
             + boldDescriptionLayout()
+            + overviewTableViewLayout()
         )
     }
     required init?(coder aDecoder: NSCoder) {
+        categoryOverviewDataSource = CategoryOverviewDataSource(forTableView: overviewTableView)
         super.init(coder: aDecoder)
     }
     func cellLayout() -> [NSLayoutConstraint] {
         return [
-            contentView.heightAnchor.constraint(equalToConstant: 200)
+            contentView.heightAnchor.constraint(equalToConstant: 360)
         ]
     }
 }
@@ -46,6 +52,7 @@ extension CategoryTVC {
         let view = withAutoLayout(UIView())
         view.layer.cornerRadius = 10
         view.backgroundColor = .white
+        view.clipsToBounds = true
         return view
     }
     func roundedContainerLayout() -> [NSLayoutConstraint] {
@@ -84,14 +91,13 @@ extension CategoryTVC {
 extension CategoryTVC {
     static func overviewTableView() -> UITableView {
         let tableView = withAutoLayout(UITableView())
-//        tableView.dataSource = SuggestedTodoDataSource()
-//        tableView.register(SuggestedTodoTVC, forCellReuseIdentifier: "SuggestedTodoTVC")
+        styleTableView(tableView)
         return tableView
     }
     func overviewTableViewLayout() -> [NSLayoutConstraint] {
-        return equalWidths(overviewTableView, parent: contentView) + [
-            overviewTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            overviewTableView.heightAnchor.constraint(equalToConstant: 200)
+        return equalWidths(overviewTableView, parent: roundedContainer) + [
+            overviewTableView.topAnchor.constraint(equalTo: boldDescriptionLabel.bottomAnchor, constant: 20),
+            overviewTableView.heightAnchor.constraint(equalToConstant: 250)
         ]
     }
 }

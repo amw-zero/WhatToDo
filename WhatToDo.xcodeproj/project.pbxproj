@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA271FC121C99F8300B1EC07 /* AutoLayoutUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA271FC021C99F8300B1EC07 /* AutoLayoutUtil.swift */; };
 		FA271FF321C9FF2000B1EC07 /* SuggestedTodoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA271FF221C9FF2000B1EC07 /* SuggestedTodoTVC.swift */; };
+		FA271FF521C9FF8900B1EC07 /* CategoryOverviewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA271FF421C9FF8900B1EC07 /* CategoryOverviewDataSource.swift */; };
 		FA84A1C121C88D8E003D707B /* ViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84A1C021C88D8E003D707B /* ViewDebug.swift */; };
 		FA84A1C521C94480003D707B /* Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84A1C421C94480003D707B /* Subviews.swift */; };
 		FA90703521C42AA100680234 /* WhatToDoLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA90702C21C42AA100680234 /* WhatToDoLogic.framework */; };
@@ -89,6 +90,7 @@
 /* Begin PBXFileReference section */
 		FA271FC021C99F8300B1EC07 /* AutoLayoutUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutUtil.swift; sourceTree = "<group>"; };
 		FA271FF221C9FF2000B1EC07 /* SuggestedTodoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedTodoTVC.swift; sourceTree = "<group>"; };
+		FA271FF421C9FF8900B1EC07 /* CategoryOverviewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOverviewDataSource.swift; sourceTree = "<group>"; };
 		FA84A1C021C88D8E003D707B /* ViewDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDebug.swift; sourceTree = "<group>"; };
 		FA84A1C421C94480003D707B /* Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subviews.swift; sourceTree = "<group>"; };
 		FA90702C21C42AA100680234 /* WhatToDoLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhatToDoLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,7 @@
 				FA271FF121C9E91700B1EC07 /* Libraries */,
 				FAABBF1F21C43AAB0097433B /* Shell.swift */,
 				FA271FF021C9E45300B1EC07 /* View */,
+				FA271FF421C9FF8900B1EC07 /* CategoryOverviewDataSource.swift */,
 			);
 			path = WhatToDo;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				FA90704C21C42E5800680234 /* LambdaCore.swift in Sources */,
 				FA84A1C521C94480003D707B /* Subviews.swift in Sources */,
 				FAABBF3221C878010097433B /* FormTextField.swift in Sources */,
+				FA271FF521C9FF8900B1EC07 /* CategoryOverviewDataSource.swift in Sources */,
 				FAABBF3021C807B10097433B /* CreateTodoVC.swift in Sources */,
 				FA271FF321C9FF2000B1EC07 /* SuggestedTodoTVC.swift in Sources */,
 				FAABBF2021C43AAB0097433B /* Shell.swift in Sources */,

@@ -23,7 +23,7 @@ extension HomeVC {
         super.viewDidLoad()
         view.backgroundColor = .white
         styleTableView(tableView)
-        tableView.register(CategoryTVC.self, forCellReuseIdentifier: "TodoTVC")
+        tableView.register(CategoryTVC.self, forCellReuseIdentifier: "CategoryTVC")
         tableView.dataSource = self
         addTodoButton.addTarget(self, action: #selector(addTodo(button:)), for: .touchUpInside)
         setupView()
@@ -73,7 +73,7 @@ extension HomeVC: UITableViewDataSource {
         if indexPath.row > (todos.count - paginationThreshold)   {
             shell.receive(.todo(.fetchSuggestedPage))
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTVC") as! CategoryTVC
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryTVC", for: indexPath) as! CategoryTVC
         cell.titleLabel.text = todos[indexPath.row].title
         cell.boldDescriptionLabel.text = "This is a Category"
         return cell
