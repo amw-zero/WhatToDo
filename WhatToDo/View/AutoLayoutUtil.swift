@@ -30,3 +30,8 @@ func equalWidths(_ view: UIView, parent: UIView, padding: CGFloat = 0) -> [NSLay
         view.rightAnchor.constraint(equalTo: parent.rightAnchor, constant: -padding)
     ]
 }
+
+func withAutoLayout<T: UIView>(_ view: T) -> T {
+    view.translatesAutoresizingMaskIntoConstraints = false
+    return view
+}

@@ -8,11 +8,6 @@
 
 import UIKit
 
-func withAutoLayout<T: UIView>(_ view: T) -> T {
-    view.translatesAutoresizingMaskIntoConstraints = false
-    return view
-}
-
 class FormTextField: UIView {
     let label: UILabel = withAutoLayout(UILabel())
     let textField: UITextField = withAutoLayout(UITextField())
