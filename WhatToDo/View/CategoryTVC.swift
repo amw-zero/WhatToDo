@@ -9,6 +9,7 @@
 import UIKit
 
 class CategoryTVC: UITableViewCell {
+    let icon = makeIcon()
     let roundedContainer = CategoryTVC.roundedContainer()
     let titleLabel = CategoryTVC.titleLabel()
     let boldDescriptionLabel = CategoryTVC.boldDescriptionLabel()
@@ -22,6 +23,7 @@ class CategoryTVC: UITableViewCell {
         overviewTableView.dataSource = categoryOverviewDataSource
         contentView.subviews {[
             roundedContainer.subviews {[
+                icon,
                 titleLabel,
                 boldDescriptionLabel,
                 overviewTableView
@@ -31,7 +33,6 @@ class CategoryTVC: UITableViewCell {
             cellLayout()
             + roundedContainerLayout()
             + titleLabelLayout()
-            + cellLayout()
             + boldDescriptionLayout()
             + overviewTableViewLayout()
         )
@@ -42,7 +43,19 @@ class CategoryTVC: UITableViewCell {
     }
     func cellLayout() -> [NSLayoutConstraint] {
         return [
-            contentView.heightAnchor.constraint(equalToConstant: 360)
+            contentView.heightAnchor.constraint(equalToConstant: 420)
+        ]
+    }
+}
+
+extension CategoryTVC {
+    static func makeIcon() -> UIImageView {
+        let imageView = UIImageView(image: UIImage(named: "Crown"))
+        return imageView
+    }
+    func iconLayout() -> [NSLayoutConstraint] {
+        return [
+            
         ]
     }
 }
@@ -68,7 +81,7 @@ extension CategoryTVC {
     }
     func titleLabelLayout() -> [NSLayoutConstraint] {
         return [
-            titleLabel.leftAnchor.constraint(equalTo: roundedContainer.leftAnchor, constant: 50),
+            titleLabel.centerXAnchor.constraint(equalTo: roundedContainer.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: roundedContainer.topAnchor, constant: 20)
         ]
     }
@@ -92,12 +105,13 @@ extension CategoryTVC {
     static func overviewTableView() -> UITableView {
         let tableView = withAutoLayout(UITableView())
         styleTableView(tableView)
+        tableView.isScrollEnabled = false
         return tableView
     }
     func overviewTableViewLayout() -> [NSLayoutConstraint] {
         return equalWidths(overviewTableView, parent: roundedContainer) + [
             overviewTableView.topAnchor.constraint(equalTo: boldDescriptionLabel.bottomAnchor, constant: 20),
-            overviewTableView.heightAnchor.constraint(equalToConstant: 250)
+            overviewTableView.bottomAnchor.constraint(equalTo: roundedContainer.bottomAnchor)
         ]
     }
 }
