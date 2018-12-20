@@ -13,7 +13,7 @@ class HomeVC: UIViewController {
     let paginationThreshold = 5
     var subscriptionId: SubscriptionId?
     var todos: [Todo] = []
-    let tableView = withAutoLayout(UITableView(frame: .zero))
+    let tableView = makeTableView()
     let addTodoButton = HomeVC.addTodoButton()
 }
     
@@ -21,7 +21,7 @@ class HomeVC: UIViewController {
 extension HomeVC {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = Style.colorBlue
         styleTableView(tableView)
         tableView.register(CategoryTVC.self, forCellReuseIdentifier: "CategoryTVC")
         tableView.dataSource = self
@@ -52,6 +52,14 @@ extension HomeVC {
     func render(state: State) {
         todos = state.todoState.todos
         tableView.reloadData()
+    }
+}
+
+extension HomeVC {
+    static func makeTableView() -> UITableView {
+        let tableView = withAutoLayout(UITableView(frame: .zero))
+        tableView.backgroundColor = .clear
+        return tableView
     }
     func tableViewLayout() -> [NSLayoutConstraint] {
         let layoutGuide = view.safeAreaLayoutGuide

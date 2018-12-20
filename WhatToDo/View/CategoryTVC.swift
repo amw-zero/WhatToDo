@@ -19,7 +19,8 @@ class CategoryTVC: UITableViewCell {
         categoryOverviewDataSource = CategoryOverviewDataSource(forTableView: overviewTableView)
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        contentView.backgroundColor = .lightGray
+        backgroundColor = Style.colorBlue
+        contentView.backgroundColor = .clear
         overviewTableView.dataSource = categoryOverviewDataSource
         contentView.subviews {[
             roundedContainer.subviews {[
