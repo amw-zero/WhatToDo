@@ -31,10 +31,11 @@ class CategoryTVC: UITableViewCell {
         ]}
         NSLayoutConstraint.activate(
             cellLayout()
-            + roundedContainerLayout()
-            + titleLabelLayout()
-            + boldDescriptionLayout()
-            + overviewTableViewLayout()
+                + iconLayout()
+                + roundedContainerLayout()
+                + titleLabelLayout()
+                + boldDescriptionLayout()
+                + overviewTableViewLayout()
         )
     }
     required init?(coder aDecoder: NSCoder) {
@@ -50,12 +51,15 @@ class CategoryTVC: UITableViewCell {
 
 extension CategoryTVC {
     static func makeIcon() -> UIImageView {
-        let imageView = UIImageView(image: UIImage(named: "Crown"))
+        let imageView = withAutoLayout(UIImageView(image: UIImage(named: "Crown")))
         return imageView
     }
     func iconLayout() -> [NSLayoutConstraint] {
         return [
-            
+            icon.leftAnchor.constraint(equalTo: roundedContainer.leftAnchor, constant: 20),
+            icon.topAnchor.constraint(equalTo: roundedContainer.topAnchor, constant: 24),
+            icon.heightAnchor.constraint(equalToConstant: 40),
+            icon.widthAnchor.constraint(equalToConstant: 40)
         ]
     }
 }
