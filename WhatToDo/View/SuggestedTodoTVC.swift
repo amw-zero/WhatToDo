@@ -71,13 +71,14 @@ extension SuggestedTodoTVC {
         label.lineBreakMode = .byTruncatingTail
         label.text = "This will be a longer description, maybe multiple lines of text"
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.numberOfLines = 2
         return label
     }
     func descriptionLabelLayout() -> [NSLayoutConstraint] {
         return [
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             descriptionLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
-            descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 20)
+            descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20)
         ]
     }
 }
